@@ -12,15 +12,21 @@ For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/g
 
 Add this line to your application's Gemfile:
 
-    gem 'activeadmin-mongoid'
+```ruby
+gem 'activeadmin-mongoid'
+```
+
+You can safely remove the following lines, since are already activeadmin-mongoid dependencies:
+
+```ruby
+gem 'activeadmin'
+gem 'meta_search', '>= 1.1.0.pre'
+gem 'sass-rails',  ['~> 3.1', '>= 3.1.4']
+```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install activeadmin-mongoid
 
 
 ## Contributing
