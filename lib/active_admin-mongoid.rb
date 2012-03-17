@@ -1,4 +1,4 @@
-require 'activeadmin-mongoid/version'
+require 'active_admin/mongoid/version'
 
 require 'active_admin'
 require 'active_admin/resource_controller'
