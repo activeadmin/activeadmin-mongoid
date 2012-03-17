@@ -1,6 +1,12 @@
 # ActiveAdmin::Mongoid
 
-TODO: Write a gem description
+ActiveAdmin hacks to support Mongoid.
+Some ActiveAdmin features are disabled:
+
+- comments
+- sidebar filters
+
+For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/gregbell/active_admin/issues/26).
 
 ## Installation
 
@@ -16,9 +22,6 @@ Or install it yourself as:
 
     $ gem install activeadmin-mongoid
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
