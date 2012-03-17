@@ -1,1 +1,1 @@
-require 'active_admin-mongoid'
+require 'active_admin/mongoid'
