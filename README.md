@@ -1,4 +1,4 @@
-# Activeadmin::Mongoid
+# ActiveAdmin::Mongoid
 
 TODO: Write a gem description
 
