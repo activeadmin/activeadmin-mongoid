@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = ActiveAdmin::Mongoid::VERSION
   gem.license       = 'MIT'
   
-  gem.add_runtime_dependency 'mongoid',     '~> 2.0'
+  gem.add_runtime_dependency 'mongoid',     '>= 2.0'
   gem.add_runtime_dependency 'activeadmin', '~> 0.4'
   gem.add_runtime_dependency 'meta_search', '>= 1.1.0.pre'
   gem.add_runtime_dependency 'sass-rails',  ['~> 3.1', '>= 3.1.4']
