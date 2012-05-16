@@ -10,11 +10,16 @@ For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/g
 
 ## Installation
 
-Add this line to your application's Gemfile:
+### Some Gems
+Add the following gems to your application's Gemfile:
 
 ```ruby
 gem 'activeadmin-mongoid'
+gem 'devise'
 ```
+Devise is the gem used to managed admin authentication.
+The gem is required to force itself ORM configuration.
+Else the gem will try to use by default ActiveRecord ORM.
 
 You can safely remove the following lines, since are already activeadmin-mongoid dependencies:
 
@@ -24,10 +29,40 @@ gem 'meta_search', '>= 1.1.0.pre'
 gem 'sass-rails',  ['~> 3.1', '>= 3.1.4']
 ```
 
-And then execute:
+### Remove Application Dependencies
+In your config/application.rb, replace :
+
+```ruby
+require 'rails/all'
+```
+
+with :
+
+```ruby
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "active_resource/railtie"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
+```
+
+rails/all includes elements requiring ActiveRecord::Connection ...
+
+### Bundle & Crank
+
+Execute:
 
     $ bundle
+	$ rails g devise:install
 
+Check that the generated initializers/devise.rb file requires mongoid orm.
+You may find a line like this :
+
+```ruby
+require 'devise/orm/mongoid'
+```
+
+And that's pretty much it !
 
 ## Contributing
 
