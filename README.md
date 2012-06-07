@@ -62,6 +62,11 @@ You may find a line like this :
 require 'devise/orm/mongoid'
 ```
 
+Then create the admin user:
+
+    $ rails console
+    >> AdminUser.create :email => 'admin@example.com', :password => 'password', :password_confirmation => 'password'
+
 And that's pretty much it !
 
 ## Contributing
