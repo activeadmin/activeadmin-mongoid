@@ -6,14 +6,16 @@ class ActiveAdmin::Resource
   def resource_table_name
     resource.collection_name
   end
-
-  # Disable filters
-  def add_default_sidebar_sections
-  end
 end
 
 ActiveAdmin::ResourceController # autoload
 class ActiveAdmin::ResourceController
+  # Disable filters
+  def initialize
+    super
+    @skip_sidebar = true
+  end
+
   # Use #desc and #asc for sorting.
   def sort_order(chain)
     params[:order] ||= active_admin_config.sort_order
