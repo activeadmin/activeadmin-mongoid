@@ -4,7 +4,7 @@ require 'inherited_resources'
 ActiveAdmin::Resource # autoload
 class ActiveAdmin::Resource
   def resource_table_name
-    resource.collection_name
+    resource_class.collection_name
   end
 
   # Disable filters
