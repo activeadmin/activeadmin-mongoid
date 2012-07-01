@@ -10,9 +10,11 @@ end
 
 ActiveAdmin::ResourceController # autoload
 class ActiveAdmin::ResourceController
-  # Disable filters
-  def initialize
-    super
+  before_filter :skip_sidebar!
+
+  protected
+
+  def skip_sidebar!
     @skip_sidebar = true
   end
 
