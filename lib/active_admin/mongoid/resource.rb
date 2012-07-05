@@ -18,7 +18,6 @@ class ActiveAdmin::ResourceController
   # Use #desc and #asc for sorting.
   def sort_order(chain)
     params[:order] ||= active_admin_config.sort_order
-    table_name = active_admin_config.resource_table_name
     if params[:order] && params[:order] =~ /^([\w\_\.]+)_(desc|asc)$/
       chain.send($2, $1)
     else
