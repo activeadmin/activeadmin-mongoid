@@ -53,7 +53,8 @@ rails/all includes elements requiring ActiveRecord::Connection ...
 Execute:
 
     $ bundle
-	$ rails g devise:install
+    $ rails g devise:install
+    $ rails g active_admin:install
 
 Check that the generated initializers/devise.rb file requires mongoid orm.
 You may find a line like this :
