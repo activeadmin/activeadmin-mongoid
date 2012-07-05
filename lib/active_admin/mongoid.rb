@@ -1,4 +1,5 @@
 require 'active_admin'
+require 'mongoid'
 
 module ActiveAdmin
   module Mongoid
