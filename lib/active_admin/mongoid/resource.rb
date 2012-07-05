@@ -1,6 +1,3 @@
-require 'active_admin'
-require 'inherited_resources'
-
 ActiveAdmin::Resource # autoload
 class ActiveAdmin::Resource
   def resource_table_name
