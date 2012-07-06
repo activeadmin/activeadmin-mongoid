@@ -4,12 +4,12 @@ require 'inherited_resources'
 ActiveAdmin::Resource # autoload
 class ActiveAdmin::Resource
   def resource_table_name
-    resource.collection_name
+    resource_class.collection_name
   end
 
   # Disable filters
-  def add_default_sidebar_sections
-  end
+  # def add_default_sidebar_sections
+  # end
 end
 
 ActiveAdmin::ResourceController # autoload
@@ -25,8 +25,8 @@ class ActiveAdmin::ResourceController
     end
   end
 
-  # Disable filters
   def search(chain)
-    chain
+    @search = ActiveAdmin::Mongoid::Adaptor::Search.new(chain, clean_search_params(params[:q]))
   end
+
 end
