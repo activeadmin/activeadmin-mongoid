@@ -11,11 +11,6 @@ class ActiveAdmin::ResourceController
 
   protected
 
-  # @todo remove once https://github.com/gregbell/active_admin/pull/1454 is merged
-  def skip_sidebar!
-    @skip_sidebar = true
-  end
-
   # Use #desc and #asc for sorting.
   def sort_order(chain)
     params[:order] ||= active_admin_config.sort_order
