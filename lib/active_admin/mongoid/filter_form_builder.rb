@@ -20,7 +20,6 @@ class ActiveAdmin::FilterFormBuilder
   end
 
   def reflection_for(method)
-  	Rails.logger.debug "*********** reflects: #{@object.class.respond_to?(:reflect_on_association)}"
     @object.class.reflect_on_association(method) if @object.class.respond_to?(:reflect_on_association)
   end
 end

@@ -1,3 +1,9 @@
+# module Mongoid::Document
+#   def method_missing(method_id, *args, &block)
+#     send(:fields, args, block) if method_id == :columns_hash
+#   end
+# end
+
 module ActiveAdmin
   module Mongoid
     module Adaptor
@@ -7,7 +13,6 @@ module ActiveAdmin
         attr_reader :base, :query, :query_hash, :search_params
 
         def initialize(object, search_params = {})
-          Rails.logger.debug "********search new: #{search_params}, get_query_hash: #{get_query_hash(search_params)}"
           @base = object
           @search_params = search_params
           @query_hash = get_query_hash(search_params)
@@ -19,8 +24,6 @@ module ActiveAdmin
         end
 
         def method_missing(method_id, *args, &block)
-          Rails.logger.debug "********method_missing: #{method_id}::#{args}"
-
           if is_query(method_id)
             return @search_params[method_id.to_s]
           end
