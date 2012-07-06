@@ -4,7 +4,6 @@ ActiveAdmin hacks to support Mongoid.
 Some ActiveAdmin features are disabled:
 
 - comments
-- sidebar filters
 
 For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/gregbell/active_admin/issues/26).
 
