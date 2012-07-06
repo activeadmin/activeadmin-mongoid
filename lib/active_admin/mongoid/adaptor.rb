@@ -1,15 +1,7 @@
-# module Mongoid::Document
-#   def method_missing(method_id, *args, &block)
-#     send(:fields, args, block) if method_id == :columns_hash
-#   end
-# end
-
 module ActiveAdmin
   module Mongoid
     module Adaptor
       class Search
-        # include Naming
-
         attr_reader :base, :query, :query_hash, :search_params
 
         def initialize(object, search_params = {})
@@ -20,14 +12,15 @@ module ActiveAdmin
         end
 
         def respond_to?(method_id)
-          query.send(:respond_to?, method_id)
+          @query.send(:respond_to?, method_id)
         end
 
         def method_missing(method_id, *args, &block)
           if is_query(method_id)
-            return @search_params[method_id.to_s]
+            @search_params[method_id.to_s]
+          else
+            @query.send(method_id, *args, &block)
           end
-          query.send(method_id, *args, &block)
         end
 
         private
@@ -44,8 +37,11 @@ module ActiveAdmin
         end
 
         def mongoidify_search(k, v)
-          return [get_attribute(k), Regexp.new(Regexp.escape("#{v}"), Regexp::IGNORECASE)] if k =~ /_contains$/
-          [k, v]
+          if k =~ /_contains$/
+            [get_attribute(k), Regexp.new(Regexp.escape("#{v}"), Regexp::IGNORECASE)]
+          else
+            [k, v]
+          end
         end
 
         def get_attribute(k)
