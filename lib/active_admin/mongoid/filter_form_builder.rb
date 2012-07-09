@@ -12,6 +12,8 @@ class ActiveAdmin::FilterFormBuilder
       when :float, :decimal
         return :numeric
       end
+    else # dirty but allows to create filters for hashes
+      return :string
     end
   end
 
