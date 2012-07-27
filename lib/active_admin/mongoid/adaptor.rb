@@ -39,13 +39,14 @@ module ActiveAdmin
         end
 
         def mongoidify_search(k, v)
-          if k =~ /_contains$/
+          case k
+          when /_contains$/
             [get_attribute(k, '_contains'), Regexp.new(Regexp.escape("#{v}"), Regexp::IGNORECASE)]
-          elsif k =~ /_eq$/
+          when /_eq$/
             [get_attribute(k, '_eq'), v]
-          elsif k =~ /_gt$/
+          when /_gt$/
             [get_attribute(k, "_gt").to_sym.gt, v]
-          elsif k =~ /_lt$/
+          when /_lt$/
             [get_attribute(k, "_lt").to_sym.lt, v]
           else
             [k, v]
