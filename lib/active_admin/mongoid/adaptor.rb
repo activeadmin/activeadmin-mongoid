@@ -26,9 +26,7 @@ module ActiveAdmin
         private
 
         def is_query(method_id)
-          method_id.to_s =~ /_contains$/  ||
-          method_id.to_s =~ /_eq$/        ||
-          method_id.to_s =~ /_(gt|lt)/
+          method_id.to_s =~ /_(contains|eq|gt|lt)$/
         end
 
         def get_query_hash(search_params)
