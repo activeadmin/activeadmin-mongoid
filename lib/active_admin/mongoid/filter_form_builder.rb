@@ -2,7 +2,7 @@ class ActiveAdmin::FilterFormBuilder
   def default_input_type(method, options = {})
     if column = column_for(method)
       case column.type.name.downcase.to_sym
-      when :date, :datetime
+      when :date, :datetime, :time
         return :date_range
       when :string, :text
         return :string
