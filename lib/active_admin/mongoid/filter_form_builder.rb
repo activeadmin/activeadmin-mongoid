@@ -4,7 +4,7 @@ class ActiveAdmin::FilterFormBuilder
       case column.type.name.downcase.to_sym
       when :date, :datetime, :time
         return :date_range
-      when :string, :text
+      when :string, :text, :object
         return :string
       when :integer
         return :select if reflection_for(method.to_s.gsub('_id','').to_sym)
