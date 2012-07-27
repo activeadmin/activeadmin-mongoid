@@ -26,7 +26,8 @@ module ActiveAdmin
         private
 
         def is_query(method_id)
-          method_id.to_s =~ /_contains$/
+          method_id.to_s =~ /_contains$/  ||
+          method_id.to_s =~ /_eq$/
         end
 
         def get_query_hash(search_params)
@@ -38,14 +39,16 @@ module ActiveAdmin
 
         def mongoidify_search(k, v)
           if k =~ /_contains$/
-            [get_attribute(k), Regexp.new(Regexp.escape("#{v}"), Regexp::IGNORECASE)]
+            [get_attribute(k, '_contains'), Regexp.new(Regexp.escape("#{v}"), Regexp::IGNORECASE)]
+          elsif k =~ /_eq$/
+            [get_attribute(k, '_eq'), v]
           else
             [k, v]
           end
         end
 
-        def get_attribute(k)
-          k.match(/^(.*)_contains$/)[1]
+        def get_attribute(k, postfix)
+          k.match(/^(.*)#{postfix}$/)[1]
         end
       end
     end
