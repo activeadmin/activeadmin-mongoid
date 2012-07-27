@@ -26,7 +26,7 @@ module ActiveAdmin
         private
 
         def is_query(method_id)
-          method_id.to_s =~ /_contains$/
+          method_id.to_s =~ /_(contains|eq|gt|lt|gte|lte)$/
         end
 
         def get_query_hash(search_params)
@@ -37,15 +37,26 @@ module ActiveAdmin
         end
 
         def mongoidify_search(k, v)
-          if k =~ /_contains$/
-            [get_attribute(k), Regexp.new(Regexp.escape("#{v}"), Regexp::IGNORECASE)]
+          case k
+          when /_contains$/
+            [get_attribute(k, '_contains'), Regexp.new(Regexp.escape("#{v}"), Regexp::IGNORECASE)]
+          when /_eq$/
+            [get_attribute(k, '_eq'), v]
+          when /_gt$/
+            [get_attribute(k, "_gt").to_sym.gt, v]
+          when /_lt$/
+            [get_attribute(k, "_lt").to_sym.lt, v]
+          when /_gte$/
+            [get_attribute(k, "_gte").to_sym.gte, v]
+          when /_lte$/
+            [get_attribute(k, "_lte").to_sym.lte, v]
           else
             [k, v]
           end
         end
 
-        def get_attribute(k)
-          k.match(/^(.*)_contains$/)[1]
+        def get_attribute(k, postfix)
+          k.match(/^(.*)#{postfix}$/)[1]
         end
       end
     end
