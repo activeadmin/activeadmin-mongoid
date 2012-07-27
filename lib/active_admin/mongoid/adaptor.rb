@@ -27,7 +27,8 @@ module ActiveAdmin
 
         def is_query(method_id)
           method_id.to_s =~ /_contains$/  ||
-          method_id.to_s =~ /_eq$/
+          method_id.to_s =~ /_eq$/        ||
+          method_id.to_s =~ /_(gt|lt)/
         end
 
         def get_query_hash(search_params)
@@ -42,6 +43,10 @@ module ActiveAdmin
             [get_attribute(k, '_contains'), Regexp.new(Regexp.escape("#{v}"), Regexp::IGNORECASE)]
           elsif k =~ /_eq$/
             [get_attribute(k, '_eq'), v]
+          elsif k =~ /_gt$/
+            [get_attribute(k, "_gt").to_sym.gt, v]
+          elsif k =~ /_lt$/
+            [get_attribute(k, "_lt").to_sym.lt, v]
           else
             [k, v]
           end
