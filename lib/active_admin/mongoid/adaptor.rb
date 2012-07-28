@@ -4,11 +4,12 @@ module ActiveAdmin
       class Search
         attr_reader :base, :query, :query_hash, :search_params
 
-        def initialize(object, search_params = {})
+        def initialize(object, search_params = {}, per_page = 30, page = 1)
           @base = object
           @search_params = search_params
           @query_hash = get_query_hash(search_params)
-          @query = @base.where(@query_hash)
+          vpage = page.to_i > 0 ? page.to_i : 1
+          @query = @base.where(@query_hash).limit(per_page).skip(per_page * (vpage - 1))
         end
 
         def respond_to?(method_id)
