@@ -14,6 +14,7 @@ module ActiveAdmin
       require 'active_admin/mongoid/comments'
       require 'active_admin/mongoid/resource'
       require 'active_admin/mongoid/document'
+      require 'active_admin/mongoid/helpers/collection'
     end
   end
 end
