@@ -2,11 +2,9 @@ module ActiveAdmin
   module Helpers
     module Collection
       def collection_size(collection=collection)
-        if collection.count == 0
-          0
-        else
-          collection.count(true)
-        end
+        collection.count(true)
+      rescue
+        collection.count
       end
     end
   end
