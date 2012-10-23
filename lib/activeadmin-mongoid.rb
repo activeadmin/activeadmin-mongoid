@@ -1,1 +1,2 @@
-require 'active_admin/mongoid'
+require 'activeadmin/mongoid/version'
+require 'activeadmin/mongoid/engine'
