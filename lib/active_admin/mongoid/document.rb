@@ -2,7 +2,7 @@ require 'mongoid'
 
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
-  
+
   module ClassMethods
     def content_columns
       @content_columns ||= fields.map(&:second).select {|f| f.name !~ /(^_|^(created|updated)_at)/}
@@ -11,9 +11,13 @@ module ActiveAdmin::Mongoid::Document
     def columns
       @columns ||= fields.map(&:second)
     end
-    
+
     def reorder *args
       scoped
+    end
+
+    def primary_key
+      :_id
     end
   end
 end
