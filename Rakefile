@@ -35,3 +35,6 @@ end
 
 
 task :default => :test
+
+# Import all our rake tasks
+FileList['tasks/**/*.rake'].each { |task| import task }

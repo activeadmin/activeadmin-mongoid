@@ -22,6 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jslint'
 
 group :test do
   gem 'capybara'
