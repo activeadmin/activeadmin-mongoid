@@ -34,7 +34,9 @@ Rake::TestTask.new(:test) do |t|
 end
 
 
-task :default => :test
-
 # Import all our rake tasks
 FileList['tasks/**/*.rake'].each { |task| import task }
+
+
+task :default => :test
+

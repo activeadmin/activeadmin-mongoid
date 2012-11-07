@@ -7,7 +7,7 @@ end
 
 # Run specs and cukes
 desc "Run the full suite"
-task :test => ['spec:unit', 'spec:integration', 'cucumber', 'cucumber:class_reloading']
+task :test => ['spec:unit', 'spec:integration']
 
 namespace :test do
 
