@@ -1,6 +1,7 @@
 require 'active_admin/mongoid/version'
 # require 'active_admin/mongoid/engine'
 require 'active_admin'
+require 'mongoid'
 
 module ActiveAdmin
   module Mongoid

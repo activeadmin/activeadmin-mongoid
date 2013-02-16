@@ -1,5 +1,3 @@
-require 'mongoid'
-
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
 
