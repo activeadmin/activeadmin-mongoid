@@ -13,7 +13,9 @@ module ActiveAdmin
     def setup *args, &block
       setup_without_mongoid *args, &block
 
+      require 'active_admin/mongoid/adaptor'
       require 'active_admin/mongoid/comments'
+      require 'active_admin/mongoid/filter_form_builder'
       require 'active_admin/mongoid/resource'
       require 'active_admin/mongoid/document'
       require 'active_admin/mongoid/helpers/collection'
