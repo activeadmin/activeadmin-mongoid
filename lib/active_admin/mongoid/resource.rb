@@ -29,6 +29,6 @@ class ActiveAdmin::ResourceController
   end
 
   def search(chain)
-    @search = ActiveAdmin::Mongoid::Adaptor::Search.new(chain, clean_search_params(params[:q]), active_admin_config.mongoid_per_page, params[:page])
+    @search = ActiveAdmin::Mongoid::Search.new(chain, clean_search_params(params[:q]), active_admin_config.mongoid_per_page, params[:page])
   end
 end
