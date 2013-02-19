@@ -1,1 +1,0 @@
-ActiveAdmin.register Store
