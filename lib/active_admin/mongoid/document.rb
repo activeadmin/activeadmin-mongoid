@@ -39,6 +39,10 @@ module ActiveAdmin::Mongoid::Document
     def primary_key
       :_id
     end
+
+    def find_by_id id
+      find_by(:_id => id)
+    end
   end
 end
 
