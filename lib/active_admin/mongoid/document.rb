@@ -25,7 +25,7 @@ module ActiveAdmin::Mongoid::Document
     end
 
     def column_names
-      @columns ||= fields.map(&:first)
+      @column_names ||= fields.map(&:first)
     end
 
     def reorder *args
