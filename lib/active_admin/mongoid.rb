@@ -20,6 +20,7 @@ module ActiveAdmin
       require 'active_admin/mongoid/resource'
       require 'active_admin/mongoid/document'
       require 'active_admin/mongoid/helpers/collection'
+      require 'active_admin/mongoid/criteria'
     end
   end
 end
