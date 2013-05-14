@@ -43,6 +43,10 @@ module ActiveAdmin::Mongoid::Document
     def find_by_id id
       find_by(:_id => id)
     end
+
+    def quoted_table_name
+      collection_name.to_s.inspect
+    end
   end
 end
 
