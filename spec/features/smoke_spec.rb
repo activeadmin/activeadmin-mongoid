@@ -1,11 +1,22 @@
 require 'spec_helper'
 
 describe 'browse the test app' do
-  before { Mongoid.purge! }
+  let(:password) { 'foobar•secret' }
+  let(:email) { 'john@doe.com' }
+
+  before do
+    Mongoid.purge!
+    AdminUser.create! email: email, password: password
+  end
   before { visit '/admin' }
 
   it 'does something' do
-    I18n.backend.reload!
+    I18n.t('active_admin.devise.login.submit').should eq('Login')
+
+    # Auth
+    fill_in 'Email', with: email
+    fill_in 'Password', with: password
+    click_on 'Login'
 
     # New
     click_on 'Posts'
