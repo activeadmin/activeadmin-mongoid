@@ -14,11 +14,7 @@ Add the following gems to your application's Gemfile:
 
 ```ruby
 gem 'activeadmin-mongoid'
-gem 'devise'
 ```
-Devise is the gem used to managed admin authentication.
-The gem is required to force itself ORM configuration.
-Else the gem will try to use by default ActiveRecord ORM.
 
 You can safely remove the following lines, since are already activeadmin-mongoid dependencies:
 
