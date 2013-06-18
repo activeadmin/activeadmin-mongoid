@@ -1,6 +1,10 @@
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
 
+  included do
+    self.primary_key ||= [:_id]
+  end
+
   class Connection
     def initialize model
       @model = model
@@ -34,10 +38,6 @@ module ActiveAdmin::Mongoid::Document
 
     def connection
       @connection ||= Connection.new(self)
-    end
-
-    def primary_key
-      :_id
     end
 
     def find_by_id id
