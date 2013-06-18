@@ -20,4 +20,5 @@ spec/reports
 /test_app/log/*.log
 /test_app/tmp/
 /test_app/.sass-cache
+/test_app/config/mongoid.yml
 /spec/rails
