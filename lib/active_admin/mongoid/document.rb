@@ -2,6 +2,12 @@ module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
 
   included do
+    unless respond_to? :primary_key
+      class << self
+        attr_accessor :primary_key
+      end
+    end
+
     self.primary_key ||= [:_id]
   end
 
@@ -47,6 +53,7 @@ module ActiveAdmin::Mongoid::Document
     def quoted_table_name
       collection_name.to_s.inspect
     end
+
   end
 end
 
