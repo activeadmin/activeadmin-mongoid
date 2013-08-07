@@ -23,9 +23,10 @@ module ActiveAdmin::Mongoid::Document
     def type
       _super = super
       case _super
-      when Object; String
-      when Moped::BSON::ObjectId; String
-      else _super
+      when Moped::BSON::ObjectId, Object
+        :string
+      else
+        p _super.name.underscore.to_sym
       end
     end
   end
