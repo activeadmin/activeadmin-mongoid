@@ -13,17 +13,22 @@ require 'active_admin/mongoid/document'
 require 'active_admin/mongoid/helpers/collection'
 require 'active_admin/mongoid/criteria'
 
-# module ActiveAdmin
-#   module Mongoid
-#   end
-#
-#   class << self
-#     alias setup_without_mongoid setup
-#
-#     # Load monkey patches *after* the setup process
-#     def setup *args, &block
-#       setup_without_mongoid *args, &block
-#
-#     end
-#   end
-# end
+module ActiveAdmin
+  module Mongoid
+    class Railtie < ::Rails::Railtie
+      config.after_initialize do
+        I18n.backend.reload!
+      end
+    end
+  end
+
+  # class << self
+  #   alias setup_without_mongoid setup
+  #
+  #   # Load monkey patches *after* the setup process
+  #   def setup *args, &block
+  #     setup_without_mongoid *args, &block
+  #
+  #   end
+  # end
+end
