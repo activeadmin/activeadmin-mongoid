@@ -5,8 +5,6 @@ module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
 
 
-
-
   # INSTANCE METHODS
 
   # Returns the column object for the named attribute.
@@ -90,7 +88,8 @@ module ActiveAdmin::Mongoid::Document
     # Columns
 
     def content_columns
-      @content_columns ||= fields.map(&:second).reject do |f|
+      # cannot cache this, since changes in time (while defining fields)
+      fields.map(&:second).reject do |f|
         f.name =~ /(^_|^(created|updated)_at)/ or Mongoid::Fields::ForeignKey === f
       end
     end
