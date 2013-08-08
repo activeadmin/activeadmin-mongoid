@@ -23,7 +23,6 @@ describe 'browse the test app' do
     # New
     click_on 'Posts'
     click_on 'New Post'
-
     fill_in 'Title', with: 'dhh screencast'
     fill_in 'Body', with: 'is still the best intro to rails'
 
@@ -49,11 +48,25 @@ describe 'browse the test app' do
 
     # List
     within('.breadcrumb') { click_on 'Posts' }
-
     within '#index_table_posts' do
       page.should have_content('DHH original screencast')
       page.should have_content('is still the best intro to rails')
     end
+
+    # Filter
+    fill_in 'Search Title', with: 'original'
+    click_on 'Filter'
+
+    within '#index_table_posts' do
+      page.should have_content('DHH original screencast')
+    end
+
+    fill_in 'Search Title', with: 'orizinal'
+    click_on 'Filter'
+    page.should_not have_content('DHH original screencast')
+
+    fill_in 'Search Title', with: ''
+    click_on 'Filter'
 
     page.should have_content('Displaying 1 Post')
   end
