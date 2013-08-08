@@ -47,8 +47,6 @@ module ActiveAdmin::Mongoid::Document
   # CLASS METHODS
 
   included do
-    include MetaSearch::Searches::Mongoid
-
     unless respond_to? :primary_key
       class << self
         attr_accessor :primary_key
@@ -135,3 +133,6 @@ module ActiveAdmin::Mongoid::Document
 end
 
 Mongoid::Document.send :include, ActiveAdmin::Mongoid::Document
+Mongoid::Document.send :include, MetaSearch::Searches::Mongoid
+
+
