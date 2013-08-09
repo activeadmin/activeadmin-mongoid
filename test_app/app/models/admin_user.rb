@@ -37,4 +37,8 @@ class AdminUser
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+
+  def name
+    email
+  end
 end
