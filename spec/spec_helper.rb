@@ -2,6 +2,14 @@
 ENV['RAILS_ENV'] ||= 'test'
 require 'rubygems'
 require 'bundler'
+
+if %w(true 1).include?(ENV['COVERAGE'])
+  require 'simplecov'
+  SimpleCov.start do
+    add_filter '/test_app/'
+  end
+end
+
 Bundler.require
 
 require File.expand_path("../../test_app/config/environment", __FILE__)
@@ -10,6 +18,7 @@ require 'rspec/autorun'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
+Dir[File.join(File.expand_path("../../", __FILE__), "spec/support/**/*.rb")].each {|f| require f}
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|

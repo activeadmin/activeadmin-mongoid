@@ -1,4 +1,5 @@
 require 'pathname'
+require 'mongoid'
 root    = Pathname(File.expand_path('../..', __FILE__))
 version = Mongoid::VERSION.to_i
 
