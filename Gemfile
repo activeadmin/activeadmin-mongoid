@@ -22,9 +22,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'jslint'
 
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
   gem 'launchy'
+  gem 'simplecov', require: false
 end
