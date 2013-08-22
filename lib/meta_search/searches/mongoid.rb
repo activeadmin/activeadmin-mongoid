@@ -22,17 +22,17 @@ module MetaSearch
           when :does_not_equal, :ne, :not_eq
             @relation = relation.where(field.to_sym.ne => value)
           when :contains, :like, :matches
-            @relation = relation.where(field => /#{value}/)
+            @relation = relation.where(field => /#{value}/i)
           when :does_not_contain, :nlike, :not_matches
-            @relation = relation.where(field.to_sym.not => /#{value}/)
+            @relation = relation.where(field.to_sym.not => /#{value}/i)
           when :starts_with, :sw
-            @relation = relation.where(field.to_sym => /\A#{Regexp.quote(value)}/)
+            @relation = relation.where(field.to_sym => /\A#{Regexp.quote(value)}/i)
           when :does_not_start_with, :dnsw
-            @relation = relation.where(field.to_sym.not => /\A#{Regexp.quote(value)}/)
+            @relation = relation.where(field.to_sym.not => /\A#{Regexp.quote(value)}/i)
           when :ends_with, :ew
-            @relation = relation.where(field.to_sym => /#{Regexp.quote(value)}\z/)
+            @relation = relation.where(field.to_sym => /#{Regexp.quote(value)}\z/i)
           when :does_not_end_with, :dnew
-            @relation = relation.where(field.to_sym.not => /#{Regexp.quote(value)}\z/)
+            @relation = relation.where(field.to_sym.not => /#{Regexp.quote(value)}\z/i)
           when :greater_than, :gt
             @relation = relation.where(field.to_sym.gt => value)
           when :less_than, :lt
@@ -92,9 +92,7 @@ module MetaSearch
       end
 
       def metasearch_regexp
-        # field_names = klass.content_columns.map(&:name)
         field_names = klass.fields.map(&:second).map(&:name)
-
         conditions = MetaSearch::DEFAULT_WHERES.map {|condition| condition[0...-1]} # pop tail options
 
         /\A(#{field_names.join('|')})_(#{conditions.join('|')})\z/
@@ -109,10 +107,7 @@ module MetaSearch
         def metasearch(params = nil, options = nil)
           options ||= {}
           params  ||= {}
-          MongoidSearchBuilder.new(self, params, options).build
-          # @metasearch_query
-          # raise [params, options].inspect unless [options, params].all?(&:empty?)
-          # scoped
+          MongoidSearchBuilder.new(criteria, params, options).build
         end
         alias_method :search, :metasearch unless respond_to?(:search)
       end
