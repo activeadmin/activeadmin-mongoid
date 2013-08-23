@@ -5,14 +5,6 @@ module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
 
 
-  # INSTANCE METHODS
-
-  # Returns the column object for the named attribute.
-  def column_for_attribute(name)
-    self.class.columns_hash[name.to_s]
-  end
-
-
 
 
   # PROXY CLASSES
@@ -45,6 +37,8 @@ module ActiveAdmin::Mongoid::Document
   # CLASS METHODS
 
   included do
+    include MetaSearch::Searches::Mongoid
+
     unless respond_to? :primary_key
       class << self
         attr_accessor :primary_key
@@ -60,11 +54,11 @@ module ActiveAdmin::Mongoid::Document
     # Metasearch
 
     def joins_values *args
-      scoped
+      criteria
     end
 
-    def group_by *args
-      scoped
+    def group_by *args, &block
+      criteria
     end
 
     def ransack *args
@@ -119,8 +113,12 @@ module ActiveAdmin::Mongoid::Document
 
 
 
-    def reorder *args
-      scoped
+    def reorder sorting
+      return unscoped if sorting.blank?
+      options = sorting.split(/ |\./)
+      options.shift if options.count == 3
+      field, order = *options
+      unscoped.order_by(field => order)
     end
 
     def connection
