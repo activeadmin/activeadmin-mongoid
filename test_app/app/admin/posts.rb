@@ -1,4 +1,5 @@
 ActiveAdmin.register Post do
+  config.per_page = 30
 
   filter :title
   filter :body
