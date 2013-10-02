@@ -203,7 +203,6 @@ describe 'browse the test app' do
           page.should have_content('Displaying 1 Post')
         end
       end
-
     end
   end
 
