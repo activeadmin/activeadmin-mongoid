@@ -239,7 +239,7 @@ describe 'browse the test app' do
             display_total_text = I18n.t 'active_admin.pagination.multiple', :model => 'Posts', :total => posts_size,
                 :from => offset + 1, :to => offset + collection_size
 
-            pagination_information = page.find('.pagination_information').native.to_s.gsub(nbsp,' ')
+            pagination_information = page.find('.pagination_information').native.to_s.gsub(nbsp,' ').gsub('&#160;', ' ')
             pagination_information.should include(display_total_text.gsub('&nbsp;', ' '))
           end
         end
