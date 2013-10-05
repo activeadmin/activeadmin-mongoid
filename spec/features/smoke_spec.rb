@@ -77,18 +77,18 @@ describe 'browse the test app' do
       describe 'filters' do
         describe 'string' do
           it 'searches by title' do
-            fill_in 'Search Title', with: 'Brown'
+            fill_in 'Title', with: 'Brown'
             click_on 'Filter'
 
             within '#index_table_posts' do
               page.should have_content('Quick Brown Fox')
             end
 
-            fill_in 'Search Title', with: 'dog'
+            fill_in 'Title', with: 'dog'
             click_on 'Filter'
             page.should_not have_content('Quick Brown Fox')
 
-            fill_in 'Search Title', with: ''
+            fill_in 'Title', with: ''
             click_on 'Filter'
 
             page.should have_content('Displaying 1 Post')
@@ -120,7 +120,7 @@ describe 'browse the test app' do
         describe 'numeric' do
           it 'searches by created_at range', js: true do
             within '.filter_numeric' do
-              find(:select).find('option[value=view_count_eq]').select_option
+              find(:select).find('option[value=view_count_equals]').select_option
             end
             fill_in 'View count', with: '5'
             click_on 'Filter'
@@ -134,7 +134,7 @@ describe 'browse the test app' do
             page.should_not have_content('Quick Brown Fox')
 
             within '.filter_numeric' do
-              find(:select).find('option[value=view_count_lt]').select_option
+              find(:select).find('option[value=view_count_less_than]').select_option
             end
             click_on 'Filter'
 
@@ -143,7 +143,7 @@ describe 'browse the test app' do
             end
 
             within '.filter_numeric' do
-              find(:select).find('option[value=view_count_gt]').select_option
+              find(:select).find('option[value=view_count_greater_than]').select_option
             end
             click_on 'Filter'
             page.should_not have_content('Quick Brown Fox')
