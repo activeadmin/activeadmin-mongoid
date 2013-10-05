@@ -1,5 +1,9 @@
 # ActiveAdmin::Mongoid
 
+[![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.png?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
+[![Gem Version](https://badge.fury.io/rb/activeadmin-mongoid.png)](http://badge.fury.io/rb/activeadmin-mongoid)
+
+
 ActiveAdmin hacks to support Mongoid.
 Some ActiveAdmin features are disabled:
 
