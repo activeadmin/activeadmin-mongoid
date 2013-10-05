@@ -16,7 +16,7 @@ module ActiveAdmin::Mongoid::Document
       when Moped::BSON::ObjectId, Object
         :string
       else
-        p _super.name.underscore.to_sym
+        _super.name.underscore.to_sym
       end
     end
   end
