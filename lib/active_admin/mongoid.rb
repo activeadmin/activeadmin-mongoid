@@ -1,5 +1,5 @@
 require 'active_admin/mongoid/version'
-# require 'active_admin/mongoid/engine'
+require 'active_support/core_ext' # needed by ransack
 require 'active_admin'
 require 'devise'
 require 'rails'
