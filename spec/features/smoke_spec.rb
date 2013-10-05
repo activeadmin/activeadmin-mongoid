@@ -227,8 +227,6 @@ describe 'browse the test app' do
           # temprorary go to page 2
           page.find('.pagination > .page > a', text: '2').click
 
-          nbsp = Nokogiri::HTML("&nbsp;").text
-
           (1..4).each do |page_number|
             page.find('.pagination > .page > a', text: page_number).click
             page.find('.pagination_information').should have_content('Displaying Posts')
@@ -236,11 +234,11 @@ describe 'browse the test app' do
             offset = (page_number - 1) * per_page
             collection_size = [per_page, posts_size - (page_number - 1) * per_page].min
 
-            display_total_text = I18n.t 'active_admin.pagination.multiple', :model => 'Posts', :total => posts_size,
-                :from => offset + 1, :to => offset + collection_size
-
-            pagination_information = page.find('.pagination_information').native.to_s.gsub(nbsp,' ')
-            display_total_text.gsub!(/&(#160|nbsp);/, ' ')
+            display_total_text = I18n.t 'active_admin.pagination.multiple',
+                                        model: 'Posts', total: posts_size,
+                                        from: offset + 1, to: offset + collection_size
+            display_total_text     = Nokogiri::HTML(display_total_text).text.gsub(' ', ' ')
+            pagination_information = page.find('.pagination_information').text
             pagination_information.should include(display_total_text)
           end
         end
