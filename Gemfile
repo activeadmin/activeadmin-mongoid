@@ -7,7 +7,7 @@ gemspec
 
 
 # Test app stuff
-case ENV['RAILS_VERSION']
+case ENV['RAILS_VERSION'] || '4'
 when '4'
   gem 'rails',        '~> 4.0.0'
 
@@ -31,7 +31,7 @@ when '4'
   end
 
 
-else
+when '3'
   gem 'rails', '~> 3.2.6'
 
   # Gems used only for assets and not required
