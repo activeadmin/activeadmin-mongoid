@@ -240,7 +240,8 @@ describe 'browse the test app' do
                 :from => offset + 1, :to => offset + collection_size
 
             pagination_information = page.find('.pagination_information').native.to_s.gsub(nbsp,' ')
-            pagination_information.should include(display_total_text.gsub('&nbsp;', ' '))
+            display_total_text.gsub!(/&(#160|nbsp);/, ' ')
+            pagination_information.should include(display_total_text)
           end
         end
       end
