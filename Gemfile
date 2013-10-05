@@ -12,7 +12,7 @@ when '4'
   gem 'rails',        '~> 4.0.0'
 
   # Waiting for the release
-  gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+  gem 'activeadmin', github: 'gregbell/active_admin'
   gem 'mongoid', github: 'mongoid/mongoid'
 
   gem 'sass-rails',   '~> 4.0.0'
