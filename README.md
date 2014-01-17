@@ -1,3 +1,8 @@
+**ALERT: Official support has started, subscribe to [active_admin#2714](https://github.com/gregbell/active_admin/issues/2714) for updates!**
+
+
+---
+
 # ActiveAdmin::Mongoid
 
 [![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.png?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
