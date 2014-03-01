@@ -6,7 +6,11 @@ module ActiveAdmin
       original_collection_size = instance_method(:collection_size)
       def collection_size(collection=collection)
         if(not collection.empty? and collection.first.class.included_modules.include?(Mongoid::Document))
-          collection.count(true)
+          if collection.first.class.embedded?
+            collection.count
+          else
+            collection.count(true)
+          end
         else
           original_collection_size(collection)
         end
