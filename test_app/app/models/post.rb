@@ -7,4 +7,7 @@ class Post
   field :view_count, type: ::Integer, default: 0
   belongs_to :admin_user
   belongs_to :other_user, class_name: 'AdminUser'
+
+  embeds_one :author
+  field :'author.name'
 end

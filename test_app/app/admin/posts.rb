@@ -8,4 +8,31 @@ ActiveAdmin.register Post do
   filter :admin_user, as: :select
   filter :other_user, as: :check_boxes
 
+  index do
+    selectable_column
+    column :title
+    column :body
+    column :view_count
+    column 'Author Name', :'author.name' do |post|
+      post.author.name if post.author.present?
+    end
+    default_actions
+  end
+
+  show do
+    attributes_table do
+      row :title
+      row :body
+      row :created_at
+      row :updated_at
+    end
+  end
+
+  form do |f|
+    f.inputs "Post" do
+      f.input :title
+      f.input :body
+    end
+    f.actions
+  end
 end
