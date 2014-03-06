@@ -231,18 +231,28 @@ describe 'browse the test app' do
 
         context 'with an embedded document' do
           before do
-            Post.where(body: 'The quick brown fox jumps over the lazy dog.').update_all(author: {name: 'Bob'})
-            post.author = Author.new name: 'Adam'
+            Post.where(body: 'The quick brown fox jumps over the lazy dog.').update_all(author: { name: 'Bob', city: { name: 'Washington' } })
+            post.author = Author.new name: 'Adam', city: { name: 'California' }
             post.save!
+            Post.all.each{|p| p.author.city }
           end
 
-          it 'sorts by author name' do
+          it 'sorts by the embedded document field' do
             click_on 'Posts'
             visit '/admin/posts?order=author.name_desc'
             page.first('#index_table_posts > tbody > tr').should have_content 'Bob'
 
             visit '/admin/posts?order=author.name_asc'
             page.first('#index_table_posts > tbody > tr').should have_content 'Adam'
+          end
+
+          it 'sorts by embedded document fields of the the embedded document' do
+            click_on 'Posts'
+            visit '/admin/posts?order=author.city.name_desc'
+            page.first('#index_table_posts > tbody > tr').should have_content 'Washington'
+
+            visit '/admin/posts?order=author.city.name_asc'
+            page.first('#index_table_posts > tbody > tr').should have_content 'California'
           end
         end
       end

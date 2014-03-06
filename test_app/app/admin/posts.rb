@@ -16,6 +16,10 @@ ActiveAdmin.register Post do
     column 'Author Name', :'author.name' do |post|
       post.author.name if post.author.present?
     end
+    column 'Author City Name', :'author.city.name' do |post|
+      author = post.author
+      author.city.name if author.present? and author.city.present?
+    end
     default_actions
   end
 

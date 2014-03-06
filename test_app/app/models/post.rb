@@ -9,5 +9,5 @@ class Post
   belongs_to :other_user, class_name: 'AdminUser'
 
   embeds_one :author
-  field :'author.name'
+  field :'author.city.name'
 end
