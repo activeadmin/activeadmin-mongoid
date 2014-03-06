@@ -217,6 +217,46 @@ describe 'browse the test app' do
         click_on 'Posts'
       end
 
+      describe 'sorting' do
+        let!(:post) { Post.create!(title: "First Post", body: 'First Post', view_count: 5, admin_user: admin_user, other_user: other_user) }
+
+        it 'sorts by title' do
+          click_on 'Posts'
+          page.find('#index_table_posts > thead > tr > th > a', text: 'Title').click
+          page.first('#index_table_posts > tbody > tr').should have_content 'Quick Brown Fox'
+
+          page.find('#index_table_posts > thead > tr > th > a', text: 'Title').click
+          page.first('#index_table_posts > tbody > tr').should have_content 'First Post'
+        end
+
+        context 'with an embedded document' do
+          before do
+            Post.where(body: 'The quick brown fox jumps over the lazy dog.').update_all(author: { name: 'Bob', city: { name: 'Washington' } })
+            post.author = Author.new name: 'Adam', city: { name: 'California' }
+            post.save!
+            Post.all.each{|p| p.author.city }
+          end
+
+          it 'sorts by the embedded document field' do
+            click_on 'Posts'
+            visit '/admin/posts?order=author.name_desc'
+            page.first('#index_table_posts > tbody > tr').should have_content 'Bob'
+
+            visit '/admin/posts?order=author.name_asc'
+            page.first('#index_table_posts > tbody > tr').should have_content 'Adam'
+          end
+
+          it 'sorts by embedded document fields of the the embedded document' do
+            click_on 'Posts'
+            visit '/admin/posts?order=author.city.name_desc'
+            page.first('#index_table_posts > tbody > tr').should have_content 'Washington'
+
+            visit '/admin/posts?order=author.city.name_asc'
+            page.first('#index_table_posts > tbody > tr').should have_content 'California'
+          end
+        end
+      end
+
       describe "paginator" do
         it "must have paginator with 4 pages" do
           page.should have_css('.pagination > .page.current')
@@ -244,7 +284,5 @@ describe 'browse the test app' do
         end
       end
     end # context 'with 100 posts'
-
   end
-
 end

@@ -115,7 +115,12 @@ module ActiveAdmin::Mongoid::Document
 
     def reorder sorting
       return unscoped if sorting.blank?
-      options = sorting.split(' ')
+      if sorting.match /\".*\".*/
+        options = sorting.split(/ |\./)
+        options.shift if options.count == 3
+      else
+        options = sorting.split(' ')
+      end
       field, order = *options
       unscoped.order_by(field => order)
     end
