@@ -14,7 +14,7 @@ module ActiveAdmin
       @column.present? && @order.present?
     end
 
-    def to_sql
+    def to_sql(options=nil)
       [@column, ' ', @order].compact.join
     end
   end
