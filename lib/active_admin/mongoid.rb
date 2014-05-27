@@ -1,9 +1,9 @@
+require 'rails'
+require 'devise'
+require 'mongoid'
 require 'active_admin/mongoid/version'
 require 'active_support/core_ext' # needed by ransack
 require 'active_admin'
-require 'devise'
-require 'rails'
-require 'mongoid'
 
 require 'active_admin/mongoid/comments'
 require 'active_admin/mongoid/adaptor'
@@ -12,6 +12,7 @@ require 'active_admin/mongoid/resource'
 require 'active_admin/mongoid/document'
 require 'active_admin/mongoid/helpers/collection'
 require 'active_admin/mongoid/criteria'
+require 'active_admin/mongoid/order_clause'
 
 module ActiveAdmin
   module Mongoid
