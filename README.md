@@ -1,5 +1,6 @@
-**ALERT: Official support has started, subscribe to [active_admin#2714](https://github.com/gregbell/active_admin/issues/2714) for updates!**
+**♻️ INFO: Official support has started, subscribe to [active_admin#2714](https://github.com/gregbell/active_admin/issues/2714) for updates!**
 
+**⚠️️ ALERT: For the reason above I'm no longer actively maintaining the projec. I will still accept any pull request for recent rails/mongoid/activeadmin and adding new specs.**
 
 ---
 
@@ -10,9 +11,10 @@
 
 
 ActiveAdmin hacks to support Mongoid.
-Some ActiveAdmin features are disabled:
+Some ActiveAdmin features are disabled or not working properly:
 
-- comments
+- comments are disabled by default
+- filters are somehow broken
 
 For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/gregbell/active_admin/issues/26).
 
