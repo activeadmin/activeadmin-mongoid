@@ -1,6 +1,6 @@
 **♻️ INFO: Official support has started, subscribe to [active_admin#2714](https://github.com/gregbell/active_admin/issues/2714) for updates!**
 
-**⚠️️ ALERT: For the reason above I'm no longer actively maintaining the projec. I will still accept any pull request for recent rails/mongoid/activeadmin and adding new specs.**
+**⚠️ ALERT: For the reason above I'm no longer actively maintaining the projec. I will still accept any pull request for recent rails/mongoid/activeadmin and adding new specs.**
 
 ---
 
