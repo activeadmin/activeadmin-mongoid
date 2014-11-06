@@ -1,5 +1,5 @@
 require 'delegate'
-require 'meta_search/searches/mongoid'
+# require 'meta_search/searches/mongoid'
 
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
