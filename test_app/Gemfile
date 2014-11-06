@@ -1,0 +1,37 @@
+source 'https://rubygems.org'
+
+gem 'activeadmin', github: 'Zhomart/active_admin'
+
+# Test app stuff
+
+gem 'rails', '~> 4.1'
+
+gem 'pry'
+
+gem 'devise'
+
+gem 'mongoid', '~> 4.0'
+
+# Gems used only for assets and not required
+# in production environments by default.
+gem 'sass-rails'
+gem 'coffee-rails'
+
+gem 'ransack_mongo'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', :platforms => :ruby
+gem 'uglifier'
+
+gem 'jquery-rails'
+# gem "jquery-rails", "~> 2.3.0"
+
+gem 'jquery-ui-rails'
+gem 'jslint'
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'launchy'
+  gem 'simplecov', require: false
+end

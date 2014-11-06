@@ -1,6 +1,8 @@
 ActiveAdmin.register Post do
   config.per_page = 30
 
+  permit_params :title, :body
+
   filter :title
   filter :body
   filter :created_at, as: :date_range
@@ -20,7 +22,7 @@ ActiveAdmin.register Post do
       author = post.author
       author.city.name if author.present? and author.city.present?
     end
-    default_actions
+    actions
   end
 
   show do

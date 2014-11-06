@@ -19,10 +19,10 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
 
   gem.add_runtime_dependency 'mongoid',     ['> 3.0', '< 5.0']
-  gem.add_runtime_dependency 'activeadmin', '~> 0.6'
-  gem.add_runtime_dependency 'jquery-rails', '< 3.0' # in which they remove jquery-ui
+  gem.add_runtime_dependency 'activeadmin', ['>= 1.0.0.pre', '< 2']
+  gem.add_runtime_dependency 'jquery-rails'
   gem.add_runtime_dependency 'sass-rails',  ['>= 3.1.4', '< 5.0']
-  gem.add_runtime_dependency 'meta_search',  '~> 1.1.3'
+  # gem.add_runtime_dependency 'meta_search',  '~> 1.1.3'
 
   gem.add_development_dependency 'rspec-rails',  '~> 2.7'
 end
