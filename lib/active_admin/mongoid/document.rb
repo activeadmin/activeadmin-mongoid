@@ -37,7 +37,7 @@ module ActiveAdmin::Mongoid::Document
   # CLASS METHODS
 
   included do
-    include MetaSearch::Searches::Mongoid
+    # include MetaSearch::Searches::Mongoid
 
     unless respond_to? :primary_key
       class << self
@@ -145,6 +145,6 @@ module ActiveAdmin::Mongoid::Document
 end
 
 Mongoid::Document.send :include, ActiveAdmin::Mongoid::Document
-Mongoid::Document.send :include, MetaSearch::Searches::Mongoid
+# Mongoid::Document.send :include, MetaSearch::Searches::Mongoid
 
 
