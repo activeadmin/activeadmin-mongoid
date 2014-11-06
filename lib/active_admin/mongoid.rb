@@ -13,6 +13,8 @@ require 'active_admin/mongoid/document'
 require 'active_admin/mongoid/helpers/collection'
 require 'active_admin/mongoid/criteria'
 
+require 'active_admin/mongoid/filters/formtastic_addons'
+
 module ActiveAdmin
   module Mongoid
     class Railtie < ::Rails::Railtie
