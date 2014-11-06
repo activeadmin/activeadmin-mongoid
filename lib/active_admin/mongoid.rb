@@ -1,9 +1,11 @@
 require 'active_admin/mongoid/version'
+require 'active_model'
+require 'mongoid'
+require 'ransack'
 # require 'active_admin/mongoid/engine'
 require 'active_admin'
 require 'devise'
 require 'rails'
-require 'mongoid'
 
 # require 'active_admin/mongoid/comments'
 require 'active_admin/mongoid/adaptor'
@@ -13,6 +15,7 @@ require 'active_admin/mongoid/document'
 require 'active_admin/mongoid/helpers/collection'
 require 'active_admin/mongoid/criteria'
 
+require 'active_admin/mongoid/order_clause'
 require 'active_admin/mongoid/filters/formtastic_addons'
 
 module ActiveAdmin

@@ -12,7 +12,7 @@ module ActiveAdmin
             collection.count(true)
           end
         else
-          original_collection_size(collection)
+          collection.count
         end
       end
     end
