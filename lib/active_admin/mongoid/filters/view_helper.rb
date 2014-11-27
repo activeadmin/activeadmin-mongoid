@@ -23,7 +23,8 @@ module ActiveAdmin
               link_to(I18n.t('active_admin.filters.buttons.clear'), '#', :class => 'clear_filters_btn') +
               hidden_field_tags_for(params, :except => [:q, :page])
           end
-          f.form_buffers.last + ::ActiveSupport::SafeBuffer.new(search_filters_html) + buttons
+          # form_buffers removed from main activeadmin branch
+          # f.form_buffers.last + ::ActiveSupport::SafeBuffer.new(search_filters_html) + buttons
         end
       end
     end
