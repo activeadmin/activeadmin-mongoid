@@ -1,24 +1,15 @@
-# module ActiveAdmin
-#   class Resource
-#
-#     module Naming
-#
-#       # Returns a name used to uniquely identify this resource
-#       # this should be an instance of ActiveAdmin:Resource::Name, which responds to
-#       # #singular, #plural, #route_key, #human etc.
-#       def resource_name
-#         custom_name = @options[:as] && @options[:as].gsub(/\s/,'')
-#         @resource_name ||= if custom_name || !resource_class.respond_to?(:model_name)
-#             Resource::Name.new(resource_class, custom_name)
-#           else
-#             Resource::Name.new(resource_class)
-#           end
-#       end
-#
-#     end
-#
-#   end
-# end
+module ActiveAdmin
+
+  class Resource
+
+    private
+
+    def method_for_find
+      resources_configuration[:self][:finder] || :find
+    end
+
+  end
+end
 
 # ActiveAdmin::Resource # autoload
 # class ActiveAdmin::Resource
