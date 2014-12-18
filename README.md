@@ -1,6 +1,6 @@
 ### ♻️ INFO
 
-**Official support** has started, subscribe to [active_admin#2714](https://github.com/gregbell/active_admin/issues/2714) for updates!
+**Official support** has started, subscribe to [activeadmin#2714](https://github.com/activeadmin/activeadmin/issues/2714) for updates!
 
 ### ⚠️ ALERT
 
