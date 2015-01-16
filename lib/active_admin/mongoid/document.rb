@@ -47,6 +47,10 @@ module ActiveAdmin::Mongoid::Document
 
     self.primary_key ||= :id
 
+    def column_for_attribute(name)
+      self.class.fields[name.to_sym]
+    end
+
   end
 
   module ClassMethods
@@ -92,12 +96,12 @@ module ActiveAdmin::Mongoid::Document
 
     # Columns
 
-    # def content_columns
-    #   # cannot cache this, since changes in time (while defining fields)
-    #   fields.map(&:second).reject do |f|
-    #     f.name =~ /(^_|^(created|updated)_at)/ or Mongoid::Fields::ForeignKey === f
-    #   end
-    # end
+    def content_columns
+      # cannot cache this, since changes in time (while defining fields)
+      fields.map(&:second).reject do |f|
+        f.name =~ /(^_|^(created|updated)_at)/ or Mongoid::Fields::ForeignKey === f
+      end
+    end
 
     # def columns
     #   @columns ||= fields.map(&:second).map{ |c| ColumnWrapper.new(c) }
