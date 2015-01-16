@@ -4,7 +4,7 @@ module ActiveAdmin
 
       # The resource class, unwrapped from Ransack
       def klass
-        @object.klass
+        @object.object.klass
       end
 
     end
