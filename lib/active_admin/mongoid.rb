@@ -14,6 +14,8 @@ require 'active_admin/mongoid/resource'
 require 'active_admin/mongoid/document'
 require 'active_admin/mongoid/helpers/collection'
 require 'active_admin/mongoid/criteria'
+require 'active_admin/filters/formtastic_addons'
+require 'active_admin/resource_controller/data_access'
 
 require 'active_admin/mongoid/order_clause'
 
