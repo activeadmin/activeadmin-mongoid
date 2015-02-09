@@ -9,7 +9,7 @@ module ActiveAdmin
         if collection.is_a?(::Mongoid::Criteria)
           collection.count(true)
         else
-          original_collection_size(collection)
+          collection.count
         end
       end
 
