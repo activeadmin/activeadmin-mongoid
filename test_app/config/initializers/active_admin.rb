@@ -1,5 +1,7 @@
 ActiveAdmin.setup do |config|
 
+  config.load_paths = ["#{Rails.root}/app/admin"]
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout

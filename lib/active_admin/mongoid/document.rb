@@ -1,5 +1,5 @@
 require 'delegate'
-require 'meta_search/searches/mongoid'
+# require 'meta_search/searches/mongoid'
 
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
@@ -13,7 +13,7 @@ module ActiveAdmin::Mongoid::Document
     def type
       _super = super
       case _super
-      when Moped::BSON::ObjectId, Object
+      when BSON::ObjectId, Object
         :string
       else
         _super.name.underscore.to_sym
@@ -37,7 +37,7 @@ module ActiveAdmin::Mongoid::Document
   # CLASS METHODS
 
   included do
-    include MetaSearch::Searches::Mongoid
+    # include MetaSearch::Searches::Mongoid
 
     unless respond_to? :primary_key
       class << self
@@ -45,7 +45,11 @@ module ActiveAdmin::Mongoid::Document
       end
     end
 
-    self.primary_key ||= [:_id]
+    self.primary_key ||= :id
+
+    def column_for_attribute(name)
+      self.class.fields[name.to_sym]
+    end
 
   end
 
@@ -53,41 +57,41 @@ module ActiveAdmin::Mongoid::Document
 
     # Metasearch
 
-    def joins_values *args
-      criteria
-    end
+    # def joins_values *args
+    #   criteria
+    # end
 
-    def group_by *args, &block
-      criteria
-    end
+    # def group_by *args, &block
+    #   criteria
+    # end
 
-    def ransack *args
-      scoped
+    # def ransack *args
+    #   scoped
 
-      scoped.class.class_eval do
-        def result
-          self
-        end
-      end
+    #   scoped.class.class_eval do
+    #     def result
+    #       self
+    #     end
+    #   end
 
-      scoped
-    end
+    #   scoped
+    # end
 
 
     # Cache
 
-    def [] name
-      raise name.inspect
-      cache[name]
-    end
+    # def [] name
+    #   raise name.inspect
+    #   cache[name]
+    # end
 
-    def []= name, value
-      cache[name]= value
-    end
+    # def []= name, value
+    #   cache[name]= value
+    # end
 
-    def cache
-      @cache ||= {}
-    end
+    # def cache
+    #   @cache ||= {}
+    # end
 
 
     # Columns
@@ -99,27 +103,31 @@ module ActiveAdmin::Mongoid::Document
       end
     end
 
-    def columns
-      @columns ||= fields.map(&:second).map{ |c| ColumnWrapper.new(c) }
-    end
+    # def columns
+    #   @columns ||= fields.map(&:second).map{ |c| ColumnWrapper.new(c) }
+    # end
 
-    def column_names
-      @column_names ||= fields.map(&:first)
-    end
+    # def column_names
+    #   @column_names ||= fields.map(&:first)
+    # end
 
-    def columns_hash
-      columns.index_by(&:name)
-    end
+    # def columns_hash
+    #   columns.index_by(&:name)
+    # end
 
 
 
-    def reorder sorting
-      return unscoped if sorting.blank?
-      options = sorting.split(/ |\./)
-      options.shift if options.count == 3
-      field, order = *options
-      unscoped.order_by(field => order)
-    end
+    # def reorder sorting
+    #   return unscoped if sorting.blank?
+    #   if sorting.match /\".*\".*/
+    #     options = sorting.split(/ |\./)
+    #     options.shift if options.count == 3
+    #   else
+    #     options = sorting.split(' ')
+    #   end
+    #   field, order = *options
+    #   unscoped.order_by(field => order)
+    # end
 
     def connection
       @connection ||= Connection.new(self)
@@ -141,6 +149,6 @@ module ActiveAdmin::Mongoid::Document
 end
 
 Mongoid::Document.send :include, ActiveAdmin::Mongoid::Document
-Mongoid::Document.send :include, MetaSearch::Searches::Mongoid
+# Mongoid::Document.send :include, MetaSearch::Searches::Mongoid
 
 
