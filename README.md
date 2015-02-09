@@ -1,3 +1,8 @@
+## Devs for Change fork
+
+Until official support is.. officially supported, we're using this fork.  It allows ActiveAdmin's master branch to work with activeadmin-mongoid in Ruby 2.2.0 with Rails 4.2.0.  Everything seems to work, (with exceptions below), and specs pass.  No warranty, of course, and we're not supporting this.  Godspeed.
+
+
 ### ♻️ INFO
 
 **Official support** has started, subscribe to [activeadmin#2714](https://github.com/activeadmin/activeadmin/issues/2714) for updates!
