@@ -1,4 +1,5 @@
 require 'delegate'
+require 'ransack/adapters/mongoid'
 
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
@@ -57,18 +58,6 @@ module ActiveAdmin::Mongoid::Document
       criteria
     end
 
-    def ransack *args
-      scoped
-
-      scoped.class.class_eval do
-        def result
-          self
-        end
-      end
-
-      scoped
-    end
-
 
     # Cache
 
@@ -93,18 +82,6 @@ module ActiveAdmin::Mongoid::Document
       fields.map(&:second).reject do |f|
         f.name =~ /(^_|^(created|updated)_at)/ or Mongoid::Fields::ForeignKey === f
       end
-    end
-
-    def ransack *args
-      scoped
-
-      scoped.class.class_eval do
-        def result
-          self
-        end
-      end
-
-      scoped
     end
 
     def columns
@@ -149,3 +126,4 @@ module ActiveAdmin::Mongoid::Document
 end
 
 Mongoid::Document.send :include, ActiveAdmin::Mongoid::Document
+
