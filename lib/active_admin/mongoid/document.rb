@@ -4,20 +4,16 @@ require 'ransack/adapters/mongoid'
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
 
-
-
+  def column_for_attribute(name)
+    self.class.column_for_attribute(name)
+  end
 
   # PROXY CLASSES
 
   class ColumnWrapper < SimpleDelegator
     def type
       _super = super
-      case _super
-      when Moped::BSON::ObjectId, Object
-        :string
-      else
-        _super.name.underscore.to_sym
-      end
+      _super.name.underscore.to_sym
     end
   end
 
@@ -94,6 +90,10 @@ module ActiveAdmin::Mongoid::Document
 
     def columns_hash
       columns.index_by(&:name)
+    end
+
+    def column_for_attribute(name)
+      columns_hash[name.to_sym]
     end
 
 
