@@ -7,7 +7,7 @@ gemspec
 
 
 # Test app stuff
-gem 'rails',        '~> 4.0.0'
+gem 'rails',        '~> 4.1.1'
 
 # Waiting for the release
 gem 'activeadmin', github: 'gregbell/active_admin'
