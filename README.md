@@ -4,7 +4,7 @@
 
 ### ⚠️ ALERT
 
-For the reason above **I'm no longer actively maintaining the projec**. I will still accept any pull request for recent rails/mongoid/activeadmin and adding new specs.
+For the reason above **I'm no longer actively maintaining the project**. I will still accept any pull request for recent rails/mongoid/activeadmin and adding new specs.
 
 ---
 
