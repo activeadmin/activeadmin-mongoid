@@ -6,7 +6,7 @@ require 'active_admin'
 require 'devise'
 require 'rails'
 
-require 'active_admin/mongoid/comments'
+# require 'active_admin/mongoid/comments'
 require 'active_admin/mongoid/adaptor'
 require 'active_admin/mongoid/filter_form_builder'
 require 'active_admin/mongoid/resource'
