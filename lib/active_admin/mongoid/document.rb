@@ -150,5 +150,3 @@ end
 
 Mongoid::Document.send :include, ActiveAdmin::Mongoid::Document
 # Mongoid::Document.send :include, MetaSearch::Searches::Mongoid
-
-
