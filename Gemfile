@@ -12,6 +12,7 @@ gem 'activeadmin', github: 'activeadmin'
 # Test app stuff
 
 gem 'rails', '~> 4.0'
+gem 'kaminari', '= 0.15.0'
 
 gem 'devise'
 
@@ -31,6 +32,7 @@ gem 'jquery-ui-rails'
 gem 'jslint'
 
 group :test do
+  gem 'pry-rails'
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
