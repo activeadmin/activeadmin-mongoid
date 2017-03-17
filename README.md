@@ -5,9 +5,7 @@ we are currently working on.  Feel free to use this, but make sure to test your
 activeadmin classes fully.  There's of course no warranty on this, and it's
 fairly quirky.  Use at your own peril.
 
-WIP: Rails 5, Mongoid 6 and ActiveAdmin 1.0.0.Pre5
-
-Status: `rspec ./spec/features/smoke_spec.rb:34` failing, green on the rest.
+working: Rails 5, Mongoid 6 and ActiveAdmin 1.0.0.Pre5
 
 ---
 
