@@ -39,7 +39,6 @@ describe 'browse the test app' do
       fill_in 'Body', with: 'is still the best intro to rails'
 
       # Create
-      binding.pry
       click_on 'Create Post'
 
       within '.attributes_table.post' do
