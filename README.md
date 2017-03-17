@@ -1,5 +1,16 @@
 ## Devs for Change fork
 
+We "maintain" this fork insofar as we try to keep it working with things that
+we are currently working on.  Feel free to use this, but make sure to test your
+activeadmin classes fully.  There's of course no warranty on this, and it's
+fairly quirky.  Use at your own peril.
+
+WIP: Rails 5, Mongoid 6 and ActiveAdmin 1.0.0.Pre5
+
+Status: `rspec ./spec/features/smoke_spec.rb:34` failing, green on the rest.
+
+---
+
 Until official support is.. officially supported, we're using this fork.  It allows ActiveAdmin's master branch to work with activeadmin-mongoid in Ruby 2.2.0 with Rails 4.2.0.  Everything seems to work, (with exceptions below), and specs pass.  No warranty, of course, and we're not supporting this.  Godspeed.
 
 
