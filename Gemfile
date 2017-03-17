@@ -11,15 +11,16 @@ gem 'activeadmin', github: 'activeadmin'
 
 # Test app stuff
 
-gem 'rails', '~> 4.0'
-gem 'kaminari', '= 0.15.0'
+gem 'rails', '~> 5.0'
+gem 'kaminari', '~> 1.0'
+gem 'kaminari-mongoid'
 
 gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 4.0'
+  gem 'sass-rails',   '>= 5.0.6'
   gem 'coffee-rails', '~> 4.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes

@@ -39,6 +39,7 @@ describe 'browse the test app' do
       fill_in 'Body', with: 'is still the best intro to rails'
 
       # Create
+      binding.pry
       click_on 'Create Post'
 
       within '.attributes_table.post' do
@@ -213,7 +214,6 @@ describe 'browse the test app' do
         posts_size.times { |n|
           Post.create!(title: "Quick Brown Fox #{n}", body: 'The quick brown fox jumps over the lazy dog.', view_count: 5, admin_user: admin_user, other_user: other_user)
         }
-
         click_on 'Posts'
       end
 
