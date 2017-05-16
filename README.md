@@ -10,8 +10,8 @@ For the reason above **I'm no longer actively maintaining the project**. I will 
 
 # ActiveAdmin::Mongoid
 
-[![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.png?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
-[![Gem Version](https://badge.fury.io/rb/activeadmin-mongoid.png)](http://badge.fury.io/rb/activeadmin-mongoid)
+[![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.svg?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
+[![Gem Version](https://badge.fury.io/rb/activeadmin-mongoid.svg)](http://badge.fury.io/rb/activeadmin-mongoid)
 
 
 ActiveAdmin hacks to support Mongoid.
