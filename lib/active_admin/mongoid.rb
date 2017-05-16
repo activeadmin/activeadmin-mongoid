@@ -16,7 +16,6 @@ require 'active_admin/mongoid/helpers/collection'
 require 'active_admin/mongoid/criteria'
 
 require 'active_admin/mongoid/order_clause'
-require 'active_admin/mongoid/filters/formtastic_addons'
 
 module ActiveAdmin
   module Mongoid
