@@ -10,7 +10,8 @@ latest working: Rails 5.0.x, Mongoid 6.0.x and ActiveAdmin 1.0.0
 
 This gem has been brought into the ActiveAdmin org for support and maintenance.  
 
----
+<!-- [![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.svg?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
+[![Gem Version](https://badge.fury.io/rb/activeadmin-mongoid.svg)](http://badge.fury.io/rb/activeadmin-mongoid) -->
 
 # ActiveAdmin::Mongoid
 
