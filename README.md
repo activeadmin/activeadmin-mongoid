@@ -1,24 +1,14 @@
-## Devs for Change fork
+# ActiveAdmin-Mongoid
 
-We "maintain" this fork insofar as we try to keep it working with things that
-we are currently working on.  Feel free to use this, but make sure to test your
-activeadmin classes fully.  There's of course no warranty on this, and it's
-fairly quirky.  Use at your own peril.
+## Updates
 
-working: Rails 5, Mongoid 6 and ActiveAdmin 1.0.0.Pre5
+ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin application.  This repo was pulled into the ActiveAdmin org from previous work done by Elia Schito, and will be maintained by Nic Boie, JD Guzman, Elia Schito and other ActiveAdmin and community members.
 
----
-
-Until official support is.. officially supported, we're using this fork.  It allows ActiveAdmin's master branch to work with activeadmin-mongoid in Ruby 2.2.0 with Rails 4.2.0.  Everything seems to work, (with exceptions below), and specs pass.  No warranty, of course, and we're not supporting this.  Godspeed.
-
+latest working: Rails 5.0.x, Mongoid 6.0.x and ActiveAdmin 1.0.0
 
 ### ♻️ INFO
 
-**Official support** has started, subscribe to [activeadmin#2714](https://github.com/activeadmin/activeadmin/issues/2714) for updates!
-
-### ⚠️ ALERT
-
-For the reason above **I'm no longer actively maintaining the projec**. I will still accept any pull request for recent rails/mongoid/activeadmin and adding new specs.
+This gem has been brought into the ActiveAdmin org for support and maintenance.  
 
 ---
 
@@ -28,7 +18,7 @@ ActiveAdmin hacks to support Mongoid.
 Some ActiveAdmin features are disabled or not working properly:
 
 - comments are disabled by default
-- filters are somehow broken
+- filters are somewhat broken
 
 For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/gregbell/active_admin/issues/26).
 
