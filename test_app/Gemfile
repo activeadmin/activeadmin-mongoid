@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin'
 gem 'activeadmin-mongoid', path: ',.'
 
 # Test app stuff
@@ -11,7 +11,7 @@ gem 'pry'
 
 gem 'devise'
 
-gem 'mongoid', '~> 6.0.0', require: true
+gem 'mongoid', '~> 6.0.3', require: true
 gem 'kaminari', '~> 1.0'
 gem 'kaminari-mongoid'
 gem 'ransack'
