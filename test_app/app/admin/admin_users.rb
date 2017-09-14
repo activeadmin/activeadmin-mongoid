@@ -16,5 +16,7 @@ ActiveAdmin.register AdminUser do
       f.input :password_confirmation  
     end                               
     f.actions                         
-  end                                 
+  end
+
+  permit_params :email, :password, :password_confirmation
 end                                   
