@@ -141,6 +141,10 @@ module ActiveAdmin::Mongoid::Document
       collection_name.to_s.inspect
     end
 
+    def associations
+      @associations ||= new.associations
+    end
+
 
     def reflections *a
       relations *a

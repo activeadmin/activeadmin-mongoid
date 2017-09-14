@@ -8,7 +8,7 @@ require 'devise'
 require 'rails'
 
 # require 'active_admin/mongoid/comments'
-require 'active_admin/mongoid/adaptor'
+# require 'active_admin/mongoid/adaptor' # This appears to no longer be used.
 require 'active_admin/mongoid/filter_form_builder'
 require 'active_admin/mongoid/resource'
 require 'active_admin/mongoid/document'

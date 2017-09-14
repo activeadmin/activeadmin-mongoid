@@ -7,6 +7,7 @@ if %w(true 1).include?(ENV['COVERAGE'])
   require 'simplecov'
   SimpleCov.start do
     add_filter '/test_app/'
+    add_filter '/spec/support'
   end
 end
 

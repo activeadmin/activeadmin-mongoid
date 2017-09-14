@@ -1,3 +1,10 @@
+development:
+  clients:
+    default:
+      database: activeadmin_mongoid_development
+      hosts:
+        - localhost:27017
+
 test:
   clients:
     default:
