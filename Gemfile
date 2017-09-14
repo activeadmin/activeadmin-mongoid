@@ -7,8 +7,6 @@ gemspec
 
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
-gem 'activeadmin', github: 'activeadmin'
-
 # Test app stuff
 
 gem 'rails', '~> 5.0'
