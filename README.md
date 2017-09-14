@@ -1,34 +1,46 @@
-### ♻️ INFO
+# ActiveAdmin-Mongoid
 
-**Official support** has started, subscribe to [activeadmin#2714](https://github.com/activeadmin/activeadmin/issues/2714) for updates!
+## Updates
 
-### ⚠️ ALERT
+ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin application.  This repo was pulled into the ActiveAdmin org from previous work done by Elia Schito, and will be maintained by Nic Boie, JD Guzman, Elia Schito and other ActiveAdmin and community members.
 
-For the reason above **I'm no longer actively maintaining the project**. I will still accept any pull request for recent rails/mongoid/activeadmin and adding new specs.
+### Requirements for version 0.4.0
+* Ruby 2.2.2 or greater. (Note, ruby-2.4.0 fails specs, see [this issue](https://github.com/DatabaseCleaner/database_cleaner/issues/466))
+* Requires Rails 5.0.x
+* Mongoid 6.0.x
+* ActiveAdmin 1.x
 
----
+## Previous versions
+* Rails 4.x with Mongoid 5.x use branch rails4-mongoid5
+* Rails 4.x with Mongoid 4.x branch rails4
+* Mongoid 3.x with older versions of rails use v 0.3.0
+
+#### Rails 4 with
+
+## ♻️ INFO
+
+This gem has been brought into the ActiveAdmin org for support and maintenance.  
+
+<!-- [![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.svg?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
+[![Gem Version](https://badge.fury.io/rb/activeadmin-mongoid.svg)](http://badge.fury.io/rb/activeadmin-mongoid) -->
 
 # ActiveAdmin::Mongoid
-
-[![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.svg?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
-[![Gem Version](https://badge.fury.io/rb/activeadmin-mongoid.svg)](http://badge.fury.io/rb/activeadmin-mongoid)
-
 
 ActiveAdmin hacks to support Mongoid.
 Some ActiveAdmin features are disabled or not working properly:
 
 - comments are disabled by default
-- filters are somehow broken
+- filters are somewhat broken
 
 For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/gregbell/active_admin/issues/26).
 
 ## Installation
 
 ### Some Gems
-Add the following gems to your application's Gemfile:
+Add the following gems to your application's Gemfile, and lock the version:
 
 ```ruby
-gem 'activeadmin-mongoid'
+gem 'activeadmin-mongoid', '0.4.0'
 ```
 
 You can safely remove the following lines, since are already activeadmin-mongoid dependencies:

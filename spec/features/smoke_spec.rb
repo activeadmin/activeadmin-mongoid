@@ -97,20 +97,20 @@ describe 'browse the test app' do
 
         describe 'date_range' do
           it 'searches by created_at range' do
-            fill_in 'q[created_at_gteq]', with: 1.day.ago.to_datetime.strftime("%Y-%m-%d")
-            fill_in 'q[created_at_lteq]', with: 2.days.from_now.to_datetime.strftime("%Y-%m-%d")
+            fill_in 'q[created_at_gteq_datetime]', with: 1.day.ago.to_datetime.strftime("%Y-%m-%d")
+            fill_in 'q[created_at_lteq_datetime]', with: 2.days.from_now.to_datetime.strftime("%Y-%m-%d")
             click_on 'Filter'
 
             within '#index_table_posts' do
               page.should have_content('Quick Brown Fox')
             end
 
-            fill_in 'q[created_at_gteq]', with: 1.day.from_now.to_datetime.strftime("%Y-%m-%d")
+            fill_in 'q[created_at_gteq_datetime]', with: 1.day.from_now.to_datetime.strftime("%Y-%m-%d")
             click_on 'Filter'
             page.should_not have_content('Quick Brown Fox')
 
-            fill_in 'q[created_at_gteq]', with: ''
-            fill_in 'q[created_at_lteq]', with: ''
+            fill_in 'q[created_at_gteq_datetime]', with: ''
+            fill_in 'q[created_at_lteq_datetime]', with: ''
             click_on 'Filter'
 
             page.should have_content('Displaying 1 Post')
@@ -213,7 +213,6 @@ describe 'browse the test app' do
         posts_size.times { |n|
           Post.create!(title: "Quick Brown Fox #{n}", body: 'The quick brown fox jumps over the lazy dog.', view_count: 5, admin_user: admin_user, other_user: other_user)
         }
-
         click_on 'Posts'
       end
 

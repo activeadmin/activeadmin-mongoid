@@ -1,52 +1,22 @@
-# module ActiveAdmin
-#   class Resource
-#
-#     module Naming
-#
-#       # Returns a name used to uniquely identify this resource
-#       # this should be an instance of ActiveAdmin:Resource::Name, which responds to
-#       # #singular, #plural, #route_key, #human etc.
-#       def resource_name
-#         custom_name = @options[:as] && @options[:as].gsub(/\s/,'')
-#         @resource_name ||= if custom_name || !resource_class.respond_to?(:model_name)
-#             Resource::Name.new(resource_class, custom_name)
-#           else
-#             Resource::Name.new(resource_class)
-#           end
-#       end
-#
-#     end
-#
-#   end
-# end
+module ActiveAdmin
+  class Resource
 
-# ActiveAdmin::Resource # autoload
-# class ActiveAdmin::Resource
-#   def resource_table_name
-#     resource_class.collection_name
-#   end
-#
-#   def mongoid_per_page
-#     per_page
-#   end
-# end
-#
-# ActiveAdmin::ResourceController # autoload
-# class ActiveAdmin::ResourceController
-#
-#   protected
-#
-#   # Use #desc and #asc for sorting.
-#   def sort_order(chain)
-#     params[:order] ||= active_admin_config.sort_order
-#     if params[:order] && params[:order] =~ /^([\w\_\.]+)_(desc|asc)$/
-#       chain.send($2, $1)
-#     else
-#       chain # just return the chain
-#     end
-#   end
-#
-#   def search(chain)
-#     @search = ActiveAdmin::Mongoid::Search.new(chain, clean_search_params(params[:q]), active_admin_config.mongoid_per_page, params[:page])
-#   end
-# end
+    # the commit: https://github.com/activeadmin/activeadmin/commit/1ef08af5044814c336917fa93aea607dce16dcb7
+    #  adds in the _id field, which doesn't work with ransack for some reason or
+    #  another.  I'm not going to investigate any deeper, let's just remove the
+    #  underscore prefixed fields as was the prior behavior
+    def default_filters
+      super.reject { |filter|  filter == :_id }
+    end
+
+    module Attributes
+
+      # Hardcode mongoid STI column name
+      # see https://github.com/activeadmin/activeadmin/commit/1ef08af5044814c336917fa93aea607dce16dcb7#diff-e15d78c0b6b12c8bffec0de0ffcf735bR34
+      def sti_col?(c)
+        c.name == '_type'
+      end
+
+    end
+  end
+end

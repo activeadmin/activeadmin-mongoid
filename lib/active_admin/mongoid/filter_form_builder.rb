@@ -1,9 +1,16 @@
-class ActiveAdmin::FilterFormBuilder
+class ActiveAdmin::Filters::FormBuilder
+
+  def filter(method, options = {})
+    if method.present? && options[:as] ||= default_input_type(method)
+      template.concat input(method, options)
+    end
+  end
+
   def default_input_type(method, options = {})
     if column = column_for(method)
       case column.type.name.downcase.to_sym
       when :date, :datetime, :time;   :date_range
-      when :string, :text, :objectl;  :string
+      when :string, :text, :object;  :string
       when :float, :decimal;          :numeric
       when :integer
         return :select if reflection_for(method.to_s.gsub('_id','').to_sym)

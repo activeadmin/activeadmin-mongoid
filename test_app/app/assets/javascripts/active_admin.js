@@ -5,5 +5,3 @@
 //# require jquery.ui.datepicker
 
 //= require jquery-ui
-
-//= require active_admin/application

@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'active_admin/mongoid/version'
 
 Gem::Specification.new do |gem|
-  gem.authors       = ['Elia Schito']
+  gem.authors       = ['Elia Schito', 'Nic Boie', 'JD Guzman']
   gem.email         = ['elia@schito.me']
   gem.description   = %q{ActiveAdmin hacks to support Mongoid (some ActiveAdmin features are disabled)}
   gem.summary       = %q{ActiveAdmin hacks to support Mongoid}
@@ -18,11 +18,11 @@ Gem::Specification.new do |gem|
   gem.version       = ActiveAdmin::Mongoid::VERSION
   gem.license       = 'MIT'
 
-  gem.add_runtime_dependency 'mongoid',     ['> 3.0', '< 5.0']
-  gem.add_runtime_dependency 'activeadmin', ['>= 1.0.0.pre', '< 2']
+  gem.add_runtime_dependency 'mongoid',     ['~> 6.0.3']
+  gem.add_runtime_dependency 'activeadmin', ['~> 1.0']
   gem.add_runtime_dependency 'jquery-rails'
-  gem.add_runtime_dependency 'sass-rails',  ['>= 3.1.4', '< 5.0']
+  gem.add_runtime_dependency 'sass-rails',  ['>= 3.1.4', '<= 5.0.6']
   # gem.add_runtime_dependency 'meta_search',  '~> 1.1.3'
 
-  gem.add_development_dependency 'rspec-rails',  '~> 2.7'
+  gem.add_development_dependency 'rspec-rails',  '~> 3.6'
 end
