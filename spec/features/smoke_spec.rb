@@ -283,5 +283,37 @@ describe 'browse the test app' do
         end
       end
     end # context 'with 100 posts'
+
+    describe 'viewing admin users' do
+      it 'includes our admin user' do
+        visit '/admin/admin_users'
+        expect(page).to have_content(admin_user.email)
+      end
+
+      describe 'search' do
+        context 'found record' do
+          it 'returns a row in the table with the found record' do
+            AdminUser.create(email: 'foo@barbiz.com', password: password)
+            visit '/admin/admin_users'
+            fill_in 'q_email', with: 'barbiz'
+            click_button('Filter')
+            within '#index_table_admin_users' do
+              expect(page).to have_content('barbiz')
+            end
+          end
+        end
+
+        context 'no records found' do
+          it 'indicates that no records were found' do
+            visit '/admin/admin_users'
+            fill_in 'q_email', with: 'foobar'
+            click_button('Filter')
+            expect(page).to_not have_content 'No Admin Users Found'
+          end
+        end
+      end
+
+
+    end
   end
 end
