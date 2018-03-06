@@ -39,7 +39,7 @@ module ActiveAdmin::Mongoid::Document
       end
     end
 
-    self.primary_key ||= [:_id]
+    self.primary_key ||= :_id
   end
 
   module ClassMethods
