@@ -8,7 +8,7 @@ ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin 
 * Ruby 2.2.2 or greater. (Note, ruby-2.4.0 fails specs, see [this issue](https://github.com/DatabaseCleaner/database_cleaner/issues/466))
 * Requires Rails 5.0.x
 * Mongoid 6.0.x
-* ActiveAdmin 1.x
+* ActiveAdmin 1.1 (Not working above 1.1.0 at this time)
 
 ## Previous versions
 * Rails 4.x with Mongoid 5.x use branch rails4-mongoid5
