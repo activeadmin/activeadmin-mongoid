@@ -5,7 +5,7 @@ gem 'activeadmin', '<= 1.1.0'
 
 # Test app stuff
 
-gem 'rails', '~> 5.0.3'
+gem 'rails', '~> 5.1.6'
 
 gem 'pry'
 
