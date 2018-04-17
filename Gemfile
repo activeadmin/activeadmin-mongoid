@@ -9,7 +9,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack', ref: 'c869fc210500'
 
 # Test app stuff
 
-gem 'rails', '~> 5.0'
+gem 'rails', '~> 5.1'
 gem 'kaminari', '~> 1.0'
 gem 'kaminari-mongoid'
 
