@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'active_admin/mongoid/version'
 
 Gem::Specification.new do |gem|
-  gem.authors       = ['Elia Schito', 'Nic Boie', 'JD Guzman']
+  gem.authors       = ['Elia Schito', 'Nic Boie', 'JD Guzman', 'Grzegorz Jakubiak']
   gem.email         = ['elia@schito.me']
   gem.description   = %q{ActiveAdmin hacks to support Mongoid (some ActiveAdmin features are disabled)}
   gem.summary       = %q{ActiveAdmin hacks to support Mongoid}
