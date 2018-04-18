@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'activeadmin-mongoid', path: '../'
-gem 'activeadmin', '<= 1.1.0'
+gem 'activeadmin', '~> 1.2.0'
 
 # Test app stuff
 
