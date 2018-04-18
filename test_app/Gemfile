@@ -14,7 +14,7 @@ gem 'devise'
 gem 'mongoid', '~> 6.0.3', require: true
 gem 'kaminari', '~> 1.0'
 gem 'kaminari-mongoid'
-gem 'ransack'
+gem 'ransack', '< 1.8.7'
 
 # Gems used only for assets and not required
 # in production environments by default.
