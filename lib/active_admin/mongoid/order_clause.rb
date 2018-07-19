@@ -8,5 +8,9 @@ module ActiveAdmin
     def to_mongo_options
       { @column => @order.downcase.to_sym }
     end
+
+    def apply(chain)
+      chain.reorder(sql)
+    end
   end
 end

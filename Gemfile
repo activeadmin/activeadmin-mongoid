@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'ransack', github: 'activerecord-hackery/ransack', ref: 'c869fc210500'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ransack-mongoid', github: 'activerecord-hackery/ransack-mongoid'
 
 # Test app stuff
 
