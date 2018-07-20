@@ -2,12 +2,7 @@ class ActiveAdmin::Filters::FormBuilder
 
   def filter(method, options = {})
     if method.present? && options[:as] ||= default_input_type(method)
-
-      if @object.is_a?(Ransack::Search) && @object.respond_to?(:klass)
-        template.concat input(method, options)
-      else
-        template.concat input(method, options)
-      end
+      template.concat input(method, options)
     end
   end
 

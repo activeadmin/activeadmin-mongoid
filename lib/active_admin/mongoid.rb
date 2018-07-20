@@ -22,8 +22,7 @@ require 'active_admin/mongoid/filters/active_filter'
 require 'active_admin/mongoid/filters/resource_extension'
 require 'active_admin/mongoid/controllers/resource_controller'
 require 'active_admin/mongoid/resource/attributes'
-
-#ActiveAdmin::ResourceController.prepend(ActiveAdmin::Mongoid::ResourceController)
+require 'active_admin/mongoid/csv_builder'
 
 module ActiveAdmin
   module Mongoid
