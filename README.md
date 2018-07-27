@@ -8,7 +8,7 @@ ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin 
 * Ruby 2.2.2 or greater. (Note, ruby-2.4.0 fails specs, see [this issue](https://github.com/DatabaseCleaner/database_cleaner/issues/466))
 * Requires Rails 5.0.x (also tested working on Rails 5.1.x)
 * Mongoid 6.x (**WARNING**:, using a Mongoid version >= 6.1.x has resulted in a fair amount of errors seen in the wild.  Test your upgrade very carefully with any apps in which you're using this gem with Mongoid >= 6.1.x!)
-* ActiveAdmin 1.1 (Not working above 1.1.0 at this time)
+* ActiveAdmin 1.3
 
 ## Previous versions
 * Rails 4.x with Mongoid 5.x use branch rails4-mongoid5
@@ -45,8 +45,6 @@ You can safely remove the following lines, since are already activeadmin-mongoid
 
 ```ruby
 gem 'activeadmin'
-gem 'meta_search', '>= 1.1.0.pre'
-gem 'sass-rails',  ['~> 3.1', '>= 3.1.4']
 ```
 
 ### Remove Application Dependencies
