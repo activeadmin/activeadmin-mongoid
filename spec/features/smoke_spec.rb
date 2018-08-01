@@ -313,6 +313,11 @@ describe 'browse the test app' do
         end
       end
 
+      it "builds csv" do
+        visit '/admin/admin_users.csv'
+        expect(page.status_code).to eq(200) or eq(304)
+      end
+
 
     end
   end
