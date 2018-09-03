@@ -14,7 +14,7 @@ gem 'devise'
 gem 'mongoid', '~> 6.0.3', require: true
 gem 'kaminari', '~> 1.0'
 gem 'kaminari-mongoid'
-gem 'ransack', '< 1.8.7'
+gem 'ransack', '<= 1.8.6'
 
 gem 'sprockets', '>= 3.7.2'
 

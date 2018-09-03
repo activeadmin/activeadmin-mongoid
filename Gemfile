@@ -5,12 +5,12 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ransack', '<= 1.8.6'
 gem 'ransack-mongoid', github: 'activerecord-hackery/ransack-mongoid'
 
 # Test app stuff
 
-gem 'rails', '~> 5.1'
+gem 'rails', '<= 5.1.99' # ransack newer than 1.8.6 causes problems in rails 5.2+
 gem 'kaminari', '~> 1.0'
 gem 'kaminari-mongoid'
 
