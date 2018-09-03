@@ -1,52 +1,60 @@
-### ♻️ INFO
+# ActiveAdmin-Mongoid
 
-**Official support** has started, subscribe to [activeadmin#2714](https://github.com/activeadmin/activeadmin/issues/2714) for updates!
+## Updates
 
-### ⚠️ ALERT
+ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin application.  This repo was pulled into the ActiveAdmin org from previous work done by Elia Schito, and will be maintained by Nic Boie, JD Guzman, Elia Schito and other ActiveAdmin and community members.
 
-For the reason above **I'm no longer actively maintaining the projec**. I will still accept any pull request for recent rails/mongoid/activeadmin and adding new specs.
+### Requirements for version 0.7.0
+* Ruby 2.2.2 or greater. (Note, ruby-2.4.0 fails specs, see [this issue](https://github.com/DatabaseCleaner/database_cleaner/issues/466))
+* Tested working on Rails 5.1.x
+* Mongoid 6.x (**WARNING**:, using a Mongoid version >= 6.1.x has resulted in a fair amount of errors seen in the wild.  Test your upgrade very carefully with any apps in which you're using this gem with Mongoid >= 6.1.x!)
+* ActiveAdmin 1.3
 
----
+## Previous versions
+* Rails 4.x with Mongoid 5.x use branch rails4-mongoid5
+* Rails 4.x with Mongoid 4.x branch rails4
+* Mongoid 3.x with older versions of rails use v 0.3.0
+
+## ♻️ INFO
+
+This gem has been brought into the ActiveAdmin org for support and maintenance.
+
+<!-- [![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.svg?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
+[![Gem Version](https://badge.fury.io/rb/activeadmin-mongoid.svg)](http://badge.fury.io/rb/activeadmin-mongoid) -->
 
 # ActiveAdmin::Mongoid
-
-[![Build Status](https://secure.travis-ci.org/elia/activeadmin-mongoid.png?branch=master)](http://travis-ci.org/elia/activeadmin-mongoid)
-[![Gem Version](https://badge.fury.io/rb/activeadmin-mongoid.png)](http://badge.fury.io/rb/activeadmin-mongoid)
-
 
 ActiveAdmin hacks to support Mongoid.
 Some ActiveAdmin features are disabled or not working properly:
 
 - comments are disabled by default
-- filters are somehow broken
+- filters are somewhat broken
 
 For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/gregbell/active_admin/issues/26).
 
 ## Installation
 
 ### Some Gems
-Add the following gems to your application's Gemfile:
+Add the following gems to your application's Gemfile, and lock the version:
 
 ```ruby
-gem 'activeadmin-mongoid'
+gem 'activeadmin-mongoid', '0.7.0'
 ```
 
 You can safely remove the following lines, since are already activeadmin-mongoid dependencies:
 
 ```ruby
 gem 'activeadmin'
-gem 'meta_search', '>= 1.1.0.pre'
-gem 'sass-rails',  ['~> 3.1', '>= 3.1.4']
 ```
 
 ### Remove Application Dependencies
-In your config/application.rb, replace :
+In your config/application.rb, replace:
 
 ```ruby
 require 'rails/all'
 ```
 
-with :
+with:
 
 ```ruby
 require "action_controller/railtie"
@@ -56,7 +64,7 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 ```
 
-rails/all includes elements requiring ActiveRecord::Connection ...
+NOTE: This gem will NOT work if you use both ActiveRecord AND Mongoid in the same app.  rails/all includes elements requiring ActiveRecord::Connection
 
 ### Bundle & Crank
 
@@ -73,10 +81,10 @@ You may find a line like this :
 require 'devise/orm/mongoid'
 ```
 
-Then create the admin user:
+Then create an admin user:
 
-    $ rails console
-    >> AdminUser.create :email => 'admin@example.com', :password => 'password', :password_confirmation => 'password'
+    $ bundle exec rails console
+    >> AdminUser.create email: 'admin@example.com', password: 'password', password_confirmation: 'password'
 
 And that's pretty much it !
 

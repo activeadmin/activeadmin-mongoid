@@ -8,3 +8,4 @@ config_file    = root.join('config/mongoid.yml')
 config_file.open('w') {|c| c << current_config }
 
 Mongoid.load!(config_file, :test)
+Mongo::Logger.logger.level = ::Logger::FATAL

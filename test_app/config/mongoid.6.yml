@@ -1,0 +1,14 @@
+development:
+  clients:
+    default:
+      database: activeadmin_mongoid_development
+      hosts:
+        - localhost:27017
+
+test:
+  clients:
+    default:
+      database: activeadmin_mongoid_test
+      hosts:
+        - localhost:27017
+#scope_overwrite_exception: true
