@@ -10,7 +10,7 @@ ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin 
 * Tested working on Rails 5.1.x
 * Mongoid 6.x (**WARNING**:, using a Mongoid version >= 6.1.x has resulted in a fair amount of errors seen in the wild.  Test your upgrade very carefully with any apps in which you're using this gem with Mongoid >= 6.1.x!)
 * ActiveAdmin 1.3
-* Ransack::Mongoid - it needs to explicitly declared in Gemfile with pointing to github's master since it has no releases on rubygems yet.
+* `ransack-mongoid` - it needs to be explicitly declared in Gemfile, pointing to github's master since it has no releases on rubygems yet.
 
 ## Previous versions
 * Rails 4.x with Mongoid 5.x use branch rails4-mongoid5
