@@ -265,8 +265,6 @@ GEM
     tilt (2.0.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.20)
-      execjs (>= 0.3.0, < 3)
     warden (1.2.8)
       rack (>= 2.0.6)
     websocket-driver (0.7.0)
@@ -281,7 +279,6 @@ PLATFORMS
 DEPENDENCIES
   activeadmin-mongoid!
   capybara
-  coffee-rails (~> 4.0)
   devise
   jquery-rails
   jquery-ui-rails
@@ -292,9 +289,7 @@ DEPENDENCIES
   rails (~> 5.1)
   ransack-mongoid!
   rspec-rails (~> 3.6)
-  sass-rails (>= 5.0.6)
   simplecov
-  uglifier (>= 1.0.3)
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
