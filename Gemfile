@@ -8,12 +8,13 @@ gem 'rails', '~> 5.1'
 
 gem 'devise'
 
+gem 'pry-rails'
+
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jslint'
 
 group :test do
-  gem 'pry-rails'
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
