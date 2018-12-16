@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'ransack-mongoid', github: 'activerecord-hackery/ransack-mongoid'
+gem 'ransack-mongoid', git: 'https://github.com/activerecord-hackery/ransack-mongoid'
 
 gem 'rails', '~> 5.1'
 

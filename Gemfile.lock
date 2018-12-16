@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/activerecord-hackery/ransack-mongoid.git
+  remote: https://github.com/activerecord-hackery/ransack-mongoid
   revision: bd1935293d2f285fa7cf33d2c5c90d981bf67338
   specs:
     ransack-mongoid (0.1.0)
