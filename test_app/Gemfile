@@ -22,7 +22,6 @@ gem 'coffee-rails'
 gem 'uglifier'
 
 gem 'jquery-rails'
-# gem "jquery-rails", "~> 2.3.0"
 
 gem 'jquery-ui-rails'
 gem 'jslint'
