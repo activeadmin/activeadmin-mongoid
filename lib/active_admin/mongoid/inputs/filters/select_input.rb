@@ -7,6 +7,6 @@ class ActiveAdmin::Inputs::Filters::SelectInput
            elsif reflection_searchable?
              reflection.key
            end
-    (name == '_id') ? 'id' : name
+    name == '_id' ? 'id' : name
   end
 end

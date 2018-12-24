@@ -11,7 +11,7 @@ ActiveAdmin.register AdminUser do
   filter :posts
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs 'Admin Details' do
       f.input :email
       f.input :password
       f.input :password_confirmation

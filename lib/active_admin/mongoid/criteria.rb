@@ -1,7 +1,7 @@
 require 'delegate'
 
 Mongoid::Criteria.class_eval do
-  def relation *args, &block
+  def relation(*_args)
     self
   end
 
@@ -14,9 +14,8 @@ Mongoid::Criteria.class_eval do
   end
 
   class CollectionTable < SimpleDelegator
-    def from(*a)
+    def from(*_a)
       self
     end
   end
 end
-

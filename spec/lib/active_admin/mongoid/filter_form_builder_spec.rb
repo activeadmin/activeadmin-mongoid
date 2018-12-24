@@ -13,21 +13,21 @@ describe ActiveAdmin::Filters::FormBuilder do
     end
 
     context 'date_range' do
-      %i(date datetime time).each do |meth|
+      %i[date datetime time].each do |meth|
         let(:column_symbol) { meth }
         it { is_expected.to eq :date_range }
       end
     end
 
     context 'string' do
-      %i(string text object).each do |meth|
+      %i[string text object].each do |meth|
         let(:column_symbol) { meth }
         it { is_expected.to eq :string }
       end
     end
 
     context 'numeric' do
-      %i(float decimal).each do |meth|
+      %i[float decimal].each do |meth|
         let(:column_symbol) { meth }
         it { is_expected.to eq :numeric }
       end
@@ -60,11 +60,9 @@ describe ActiveAdmin::Filters::FormBuilder do
       it { is_expected.to eq :string }
     end
 
-
-  # when :date, :datetime, :time;   :date_range
-  # when :string, :text, :object;  :string
-  # when :float, :decimal;          :numeric
-  # when :integer
-
+    # when :date, :datetime, :time;   :date_range
+    # when :string, :text, :object;  :string
+    # when :float, :decimal;          :numeric
+    # when :integer
   end
 end

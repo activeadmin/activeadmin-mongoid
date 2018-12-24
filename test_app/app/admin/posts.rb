@@ -10,7 +10,6 @@ ActiveAdmin.register Post do
   filter :admin_user, as: :select
   filter :other_user, as: :check_boxes
 
-
   index do
     selectable_column
     column :title
@@ -21,7 +20,7 @@ ActiveAdmin.register Post do
     end
     column 'Author City Name', :'author.city.name' do |post|
       author = post.author
-      author.city.name if author.present? and author.city.present?
+      author.city.name if author.present? && author.city.present?
     end
     actions
   end
@@ -36,7 +35,7 @@ ActiveAdmin.register Post do
   end
 
   form do |f|
-    f.inputs "Post" do
+    f.inputs 'Post' do
       f.input :title
       f.input :body
     end

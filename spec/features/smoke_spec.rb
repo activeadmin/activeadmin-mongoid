@@ -1,4 +1,3 @@
-# coding: utf-8
 require 'spec_helper'
 require 'activeadmin'
 
@@ -67,7 +66,6 @@ describe 'browse the test app' do
     end
 
     context 'with 1 post' do
-
       before do
         Post.create!(title: 'Quick Brown Fox', body: 'The quick brown fox jumps over the lazy dog.', view_count: 5, admin_user: admin_user, other_user: other_user)
 
@@ -97,15 +95,15 @@ describe 'browse the test app' do
 
         describe 'date_range' do
           it 'searches by created_at range' do
-            fill_in 'q[created_at_gteq_datetime]', with: 1.day.ago.to_datetime.strftime("%Y-%m-%d")
-            fill_in 'q[created_at_lteq_datetime]', with: 2.days.from_now.to_datetime.strftime("%Y-%m-%d")
+            fill_in 'q[created_at_gteq_datetime]', with: 1.day.ago.to_datetime.strftime('%Y-%m-%d')
+            fill_in 'q[created_at_lteq_datetime]', with: 2.days.from_now.to_datetime.strftime('%Y-%m-%d')
             click_on 'Filter'
 
             within '#index_table_posts' do
               expect(page).to have_content('Quick Brown Fox')
             end
 
-            fill_in 'q[created_at_gteq_datetime]', with: 1.day.from_now.to_datetime.strftime("%Y-%m-%d")
+            fill_in 'q[created_at_gteq_datetime]', with: 1.day.from_now.to_datetime.strftime('%Y-%m-%d')
             click_on 'Filter'
             expect(page).to_not have_content('Quick Brown Fox')
 
@@ -210,14 +208,14 @@ describe 'browse the test app' do
       let(:posts_size) { 100 }
 
       before do
-        posts_size.times { |n|
+        posts_size.times do |n|
           Post.create!(title: "Quick Brown Fox #{n}", body: 'The quick brown fox jumps over the lazy dog.', view_count: 5, admin_user: admin_user, other_user: other_user)
-        }
+        end
         click_on 'Posts'
       end
 
       describe 'sorting' do
-        let!(:post) { Post.create!(title: "First Post", body: 'First Post', view_count: 5, admin_user: admin_user, other_user: other_user) }
+        let!(:post) { Post.create!(title: 'First Post', body: 'First Post', view_count: 5, admin_user: admin_user, other_user: other_user) }
 
         it 'sorts by title' do
           click_on 'Posts'
@@ -233,7 +231,7 @@ describe 'browse the test app' do
             Post.where(body: 'The quick brown fox jumps over the lazy dog.').update_all(author: { name: 'Bob', city: { name: 'Washington' } })
             post.author = Author.new name: 'Adam', city: { name: 'California' }
             post.save!
-            Post.all.each{|p| p.author.city }
+            Post.all.each { |p| p.author.city }
           end
 
           it 'sorts by the embedded document field' do
@@ -256,13 +254,13 @@ describe 'browse the test app' do
         end
       end
 
-      describe "paginator" do
-        it "must have paginator with 4 pages" do
+      describe 'paginator' do
+        it 'must have paginator with 4 pages' do
           expect(page).to have_css('.pagination > .page.current')
           expect(page.all(:css, '.pagination > .page').size).to eq(4)
         end
 
-        it "must show each page correctly" do
+        it 'must show each page correctly' do
           # temprorary go to page 2
           page.find('.pagination > .page > a', text: '2').click
 
@@ -276,7 +274,7 @@ describe 'browse the test app' do
             display_total_text = I18n.t 'active_admin.pagination.multiple',
                                         model: 'Posts', total: posts_size,
                                         from: offset + 1, to: offset + collection_size
-            display_total_text     = Nokogiri::HTML(display_total_text).text.gsub(' ', ' ')
+            display_total_text     = Nokogiri::HTML(display_total_text).text.tr(' ', ' ')
             pagination_information = page.find('.pagination_information').text
             expect(pagination_information).to include(display_total_text)
           end
@@ -313,12 +311,10 @@ describe 'browse the test app' do
         end
       end
 
-      it "builds csv" do
+      it 'builds csv' do
         visit '/admin/admin_users.csv'
-        expect(page.status_code).to eq(200) or eq(304)
+        expect(page.status_code).to(eq(200)) || eq(304)
       end
-
-
     end
   end
 end

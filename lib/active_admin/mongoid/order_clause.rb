@@ -1,6 +1,5 @@
 module ActiveAdmin
   class OrderClause
-
     def to_sql
       to_mongo_options
     end

@@ -1,7 +1,6 @@
 require 'active_admin/filters/active_filter'
 module ActiveAdmin
   module Filters
-
     class ActiveFilter
       def related_primary_key
         if predicate_association

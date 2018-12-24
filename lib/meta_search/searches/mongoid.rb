@@ -4,13 +4,13 @@ require 'meta_search/builder'
 
 module MetaSearch
   module Searches
-
     require 'delegate'
     class MongoidSearchBuilder < SimpleDelegator
-      def initialize relation, params, options
+      def initialize(relation, params, options)
         super(relation)
         @relation = relation
-        @params, @options = params, options
+        @params = params
+        @options = options
       end
 
       def build
@@ -74,16 +74,15 @@ module MetaSearch
         relation
       end
 
-      def method_missing name, *attrs, &block
+      def method_missing(name, *attrs, &block)
         relation.send(name, *attrs, &block)
       end
 
-
-      def respond_to? name, include_private = false
-        name.to_s =~ metasearch_regexp or super
+      def respond_to?(name, include_private = false)
+        name.to_s =~ metasearch_regexp || super
       end
 
-      def method_missing name, *args, &block
+      def method_missing(name, *args, &block)
         if name =~ metasearch_regexp
           params[name]
         else
@@ -93,11 +92,10 @@ module MetaSearch
 
       def metasearch_regexp
         field_names = klass.fields.map(&:second).map(&:name)
-        conditions = MetaSearch::DEFAULT_WHERES.map {|condition| condition[0...-1]} # pop tail options
+        conditions = MetaSearch::DEFAULT_WHERES.map { |condition| condition[0...-1] } # pop tail options
 
         /\A(#{field_names.join('|')})_(#{conditions.join('|')})\z/
       end
-
     end
 
     module Mongoid
@@ -109,9 +107,8 @@ module MetaSearch
           params  ||= {}
           MongoidSearchBuilder.new(criteria, params, options).build
         end
-        alias_method :search, :metasearch unless respond_to?(:search)
+        alias search metasearch unless respond_to?(:search)
       end
-
     end
   end
 end

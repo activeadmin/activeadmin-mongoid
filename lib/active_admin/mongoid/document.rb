@@ -3,9 +3,6 @@ require 'delegate'
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
 
-
-
-
   # PROXY CLASSES
 
   class ColumnWrapper < SimpleDelegator
@@ -21,17 +18,14 @@ module ActiveAdmin::Mongoid::Document
   end
 
   class Connection
-    def initialize model
+    def initialize(model)
       @model = model
     end
 
-    def quote_column_name name
+    def quote_column_name(name)
       name
     end
   end
-
-
-
 
   # CLASS METHODS
 
@@ -47,14 +41,13 @@ module ActiveAdmin::Mongoid::Document
     def column_for_attribute(name)
       self.class.fields[name.to_sym]
     end
-
   end
 
   module ClassMethods
     def content_columns
       # cannot cache this, since changes in time (while defining fields)
       fields.map(&:second).reject do |f|
-        f.name =~ /(^_|^(created|updated)_at)/ or Mongoid::Fields::ForeignKey === f
+        f.name =~ /(^_|^(created|updated)_at)/ || (Mongoid::Fields::ForeignKey === f)
       end
     end
 
@@ -62,8 +55,8 @@ module ActiveAdmin::Mongoid::Document
       @connection ||= Connection.new(self)
     end
 
-    def find_by_id id
-      find_by(:_id => id)
+    def find_by_id(id)
+      find_by(_id: id)
     end
 
     def quoted_table_name
@@ -74,8 +67,7 @@ module ActiveAdmin::Mongoid::Document
       @associations ||= new.associations
     end
 
-
-    def reflections *a
+    def reflections(*a)
       relations *a
     end
   end

@@ -1,7 +1,6 @@
 module ActiveAdmin
   module Helpers
     module Collection
-
       alias original_collection_size collection_size
       original_collection_size = instance_method(:collection_size)
 
@@ -13,7 +12,6 @@ module ActiveAdmin
           original_collection_size(collection)
         end
       end
-
     end
   end
 end
