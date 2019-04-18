@@ -4,7 +4,7 @@ gemspec
 
 gem 'ransack-mongoid', git: 'https://github.com/activerecord-hackery/ransack-mongoid'
 
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.2'
 
 gem 'devise'
 

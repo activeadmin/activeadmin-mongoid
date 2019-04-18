@@ -3,13 +3,13 @@
 
 ## Updates
 
-ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin application.  This repo was pulled into the ActiveAdmin org from previous work done by Elia Schito, and will be maintained by Nic Boie, JD Guzman, Elia Schito and other ActiveAdmin and community members.
+ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin application.  This repo was pulled into the ActiveAdmin org from previous work done by Elia Schito, and will be maintained by Grzegorz Jakubiak, Nic Boie, JD Guzman, Elia Schito and other ActiveAdmin and community members.
 
-### Requirements for version 0.8.0
+### Requirements for version 0.9.0
 * Ruby 2.3.0 or greater. (Note, ruby-2.4.0 fails specs, see [this issue](https://github.com/DatabaseCleaner/database_cleaner/issues/466))
-* Tested working on Rails 5.1.x
+* Tested working on Rails 5.2.3
 * Mongoid 6.x (**WARNING**:, using a Mongoid version >= 6.1.x has resulted in a fair amount of errors seen in the wild.  Test your upgrade very carefully with any apps in which you're using this gem with Mongoid >= 6.1.x!)
-* ActiveAdmin 1.3
+* ActiveAdmin 1.4.3
 * `ransack-mongoid` - it needs to be explicitly declared in Gemfile, pointing to github's master since it has no releases on rubygems yet.
 
 ## Previous versions
