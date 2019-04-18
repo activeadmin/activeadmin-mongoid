@@ -1,4 +1,5 @@
 # ActiveAdmin-Mongoid
+[![Version         ][rubygems_badge]][rubygems]
 [![Build Status](https://travis-ci.org/activeadmin/activeadmin-mongoid.svg?branch=master)](https://travis-ci.org/activeadmin/activeadmin-mongoid)
 
 ## Updates
@@ -99,3 +100,6 @@ And that's pretty much it !
 ## Copyright
 
 Copyright © 2012 Elia Schito. See LICENSE for details.
+
+[rubygems_badge]: https://img.shields.io/gem/v/activeadmin-mongoid.svg
+[rubygems]: https://rubygems.org/gems/activeadmin-mongoid
