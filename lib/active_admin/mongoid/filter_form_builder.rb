@@ -13,7 +13,7 @@ class ActiveAdmin::Filters::FormBuilder
       when :string, :text, :object;  :string
       when :float, :decimal;          :numeric
       when :integer
-        return :select if reflection_for(method.to_s.gsub('_id','').to_sym)
+        return :select if reflection_for(method.to_s.gsub!('_id','').to_sym)
         return :numeric
       end
     elsif is_association?(method)
