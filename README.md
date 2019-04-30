@@ -38,7 +38,7 @@ For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/g
 Add the following gems to your application's Gemfile, and lock the version:
 
 ```ruby
-gem 'activeadmin-mongoid', '0.8.0'
+gem 'activeadmin-mongoid', '0.9.0'
 gem 'ransack-mongoid', github: 'activerecord-hackery/ransack-mongoid'
 ```
 
