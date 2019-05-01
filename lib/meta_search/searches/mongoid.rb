@@ -92,7 +92,7 @@ module MetaSearch
       end
 
       def metasearch_regexp
-        field_names = klass.fields.map(&:second).map(&:name)
+        field_names = klass.fields.map{ |field| field.second.name }
         conditions = MetaSearch::DEFAULT_WHERES.map {|condition| condition[0...-1]} # pop tail options
 
         /\A(#{field_names.join('|')})_(#{conditions.join('|')})\z/

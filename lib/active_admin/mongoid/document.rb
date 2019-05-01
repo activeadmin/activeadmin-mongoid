@@ -53,7 +53,7 @@ module ActiveAdmin::Mongoid::Document
   module ClassMethods
     def content_columns
       # cannot cache this, since changes in time (while defining fields)
-      fields.map(&:second).reject do |f|
+      fields.map(&:second).reject! do |f|
         f.name =~ /(^_|^(created|updated)_at)/ or Mongoid::Fields::ForeignKey === f
       end
     end
