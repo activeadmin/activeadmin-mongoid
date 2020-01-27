@@ -11,8 +11,6 @@ if %w(true 1).include?(ENV['COVERAGE'])
   end
 end
 
-Bundler.require
-
 require File.expand_path("../../test_app/config/environment", __FILE__)
 require 'rspec/rails'
 
