@@ -1,6 +1,5 @@
 # coding: utf-8
 require 'spec_helper'
-require 'activeadmin'
 
 describe 'browse the test app' do
   let(:password) { 'foobar•secret' }
