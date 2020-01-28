@@ -6,7 +6,7 @@ module ActiveAdmin::Filters::ResourceExtension
       without_embedded = resource_class.reflect_on_all_associations.reject { |e| e.embeds? }
       poly, not_poly = without_embedded.partition{ |r| r.macro == :belongs_to && r.options[:polymorphic] }
 
-      filters = poly.map(&:foreign_type) + not_poly.map(&:name)
+      filters = poly.map(&:foreign_key) + not_poly.map(&:name)
       filters.map &:to_sym
     else
       []
