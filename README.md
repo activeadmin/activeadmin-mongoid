@@ -10,7 +10,7 @@ ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin 
 * Ruby 2.4.0 or greater.
 * Tested working on Rails 5.2.3
 * Mongoid 6.x (**WARNING**:, using a Mongoid version >= 6.1.x has resulted in a fair amount of errors seen in the wild.  Test your upgrade very carefully with any apps in which you're using this gem with Mongoid >= 6.1.x!)
-* ActiveAdmin 1.4.3
+* ActiveAdmin 1.4.3 or greater
 * `ransack-mongoid` - it needs to be explicitly declared in Gemfile, pointing to github's master since it has no releases on rubygems yet.
 
 ## Previous versions
@@ -38,7 +38,7 @@ For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/g
 Add the following gems to your application's Gemfile, and lock the version:
 
 ```ruby
-gem 'activeadmin-mongoid', '0.9.0'
+gem 'activeadmin-mongoid', '1.0.0'
 gem 'ransack-mongoid', github: 'activerecord-hackery/ransack-mongoid'
 ```
 
@@ -61,6 +61,7 @@ with:
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
+require "action_view/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
 ```
