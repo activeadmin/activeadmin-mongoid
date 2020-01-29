@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 2.4'
 
-  gem.add_runtime_dependency 'mongoid',     ['~> 6.0']
+  gem.add_runtime_dependency 'mongoid',     '>= 6.0', '< 8.a'
   gem.add_runtime_dependency 'activeadmin', '>= 1.4.3'
   gem.add_runtime_dependency 'kaminari-mongoid'
   gem.add_runtime_dependency 'jquery-rails'
