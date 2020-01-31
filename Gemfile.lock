@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/jesusalc/ransack-mongoid.git
-  revision: a56a8ac72be816a34e6f4d3cbb3c583908d0bca2
+  revision: b7f68881081731afdfaa010499d06adc93d17d71
   branch: rails-6-mongoid-7-ruby-2-7-0
   specs:
-    ransack-mongoid (0.1.0)
+    ransack-mongoid (0.1.1)
 
 PATH
   remote: .
