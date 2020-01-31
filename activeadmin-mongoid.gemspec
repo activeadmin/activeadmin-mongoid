@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
   gem.version = ActiveAdmin::Mongoid::VERSION
   gem.license = 'MIT'
 
-  gem.required_ruby_version = '>= 2.4'
+  gem.required_ruby_version = '>= 2.5'
 
   gem.add_runtime_dependency 'mongoid', '>= 6.0', '< 8.a'
   gem.add_runtime_dependency 'activeadmin', '>= 1.4.3'
