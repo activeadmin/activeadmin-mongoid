@@ -9,7 +9,7 @@ PATH
   remote: .
   specs:
     activeadmin-mongoid (1.0.0)
-      activeadmin (>= 1.4.3)
+      activeadmin (>= 1.4.3, <= 2.6.0)
       jquery-rails
       kaminari-mongoid
       mongoid (>= 6.0, < 8.a)
@@ -137,18 +137,18 @@ GEM
     jslint (1.2.0)
       json
     json (2.3.0)
-    kaminari (1.1.1)
+    kaminari (1.2.0)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
-    kaminari-actionview (1.1.1)
+      kaminari-actionview (= 1.2.0)
+      kaminari-activerecord (= 1.2.0)
+      kaminari-core (= 1.2.0)
+    kaminari-actionview (1.2.0)
       actionview
-      kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
+      kaminari-core (= 1.2.0)
+    kaminari-activerecord (1.2.0)
       activerecord
-      kaminari-core (= 1.1.1)
-    kaminari-core (1.1.1)
+      kaminari-core (= 1.2.0)
+    kaminari-core (1.2.0)
     kaminari-mongoid (1.0.1)
       kaminari-core (~> 1.0)
       mongoid
