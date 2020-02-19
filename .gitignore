@@ -21,3 +21,4 @@ spec/reports
 /test_app/.sass-cache
 /test_app/config/mongoid.yml
 /spec/rails
+.ruby-version

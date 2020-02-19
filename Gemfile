@@ -20,3 +20,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
 end
+
+group :lint do
+  gem 'rubocop', '0.80.0'
+end
