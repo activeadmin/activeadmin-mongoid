@@ -11,7 +11,7 @@ module ActiveAdmin
       csv << bom if bom
 
       if column_names
-        csv << CSV.generate_line(columns.map{ |c| encode c.name, options }, csv_options)
+        csv << CSV.generate_line(columns.map { |c| encode c.name, options }, csv_options)
       end
 
       (1..paginated_collection.total_pages).each do |page|

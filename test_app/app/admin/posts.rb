@@ -10,7 +10,6 @@ ActiveAdmin.register Post do
   filter :admin_user, as: :select
   filter :other_user, as: :check_boxes
 
-
   index do
     selectable_column
     column :title

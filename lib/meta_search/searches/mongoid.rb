@@ -10,7 +10,8 @@ module MetaSearch
       def initialize relation, params, options
         super(relation)
         @relation = relation
-        @params, @options = params, options
+        @params = params
+        @options = options
       end
 
       def build
@@ -78,7 +79,6 @@ module MetaSearch
         relation.send(name, *attrs, &block)
       end
 
-
       def respond_to? name, include_private = false
         name.to_s =~ metasearch_regexp or super
       end
@@ -92,8 +92,8 @@ module MetaSearch
       end
 
       def metasearch_regexp
-        field_names = klass.fields.map{ |field| field.second.name }
-        conditions = MetaSearch::DEFAULT_WHERES.map {|condition| condition[0...-1]} # pop tail options
+        field_names = klass.fields.map { |field| field.second.name }
+        conditions = MetaSearch::DEFAULT_WHERES.map { |condition| condition[0...-1] } # pop tail options
 
         /\A(#{field_names.join('|')})_(#{conditions.join('|')})\z/
       end

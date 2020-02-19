@@ -71,6 +71,7 @@ Naming/PredicateName:
   AllowedMethods:
     - has_many
     - has_many_actions
+    - is_association?
 
 Style/TrailingCommaInArguments:
   Enabled: true

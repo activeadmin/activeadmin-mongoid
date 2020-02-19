@@ -7,10 +7,9 @@ end
 
 # Run specs and cukes
 desc "Run the full suite"
-task :test => ['spec:unit', 'spec:integration']
+task test: ['spec:unit', 'spec:integration']
 
 namespace :test do
-
   def run_tests_against(*versions)
     current_version = detect_rails_version if File.exists?("Gemfile.lock")
 
@@ -33,8 +32,7 @@ namespace :test do
   end
 
   desc "Alias for major_supported_rails"
-  task :all => :major_supported_rails
-
+  task all: :major_supported_rails
 end
 
 require 'rspec/core/rake_task'
@@ -42,7 +40,6 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
 namespace :spec do
-
   desc "Run the unit specs"
   RSpec::Core::RakeTask.new(:unit) do |t|
     t.pattern = "spec/unit/**/*_spec.rb"
@@ -52,7 +49,6 @@ namespace :spec do
   RSpec::Core::RakeTask.new(:integration) do |t|
     t.pattern = "spec/integration/**/*_spec.rb"
   end
-
 end
 
 #

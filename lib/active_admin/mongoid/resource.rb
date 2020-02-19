@@ -6,7 +6,7 @@ module ActiveAdmin
     #  another.  I'm not going to investigate any deeper, let's just remove the
     #  underscore prefixed fields as was the prior behavior
     def default_filters
-      super.reject { |filter|  filter == :_id }
+      super.reject { |filter| filter == :_id }
     end
 
     module Attributes

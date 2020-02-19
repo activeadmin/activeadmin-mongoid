@@ -1,5 +1,4 @@
 namespace :js do
-
   desc "Compile the JS for Rails apps without Asset Pipeline"
   task :compile do
     require 'sprockets'
@@ -28,5 +27,4 @@ namespace :js do
 
     FileUtils.mv tmp_base_js, base_js
   end
-
 end
