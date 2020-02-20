@@ -1,0 +1,104 @@
+AllCops:
+  DisabledByDefault: true
+  TargetRubyVersion: 2.4
+
+  DisplayCopNames: true
+
+  StyleGuideCopsOnly: false
+
+Layout/EndAlignment:
+  Enabled: true
+
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: true
+
+Layout/AccessModifierIndentation:
+  Enabled: true
+
+Layout/CaseIndentation:
+  Enabled: true
+
+Layout/CommentIndentation:
+  Enabled: true
+
+Layout/ElseAlignment:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+
+Layout/EndOfLine:
+  Enabled: true
+
+Layout/ExtraSpacing:
+  Enabled: true
+
+Style/Dir:
+  Enabled: true
+
+Style/Encoding:
+  Enabled: true
+
+Style/ExpandPathArguments:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: never
+
+Style/HashSyntax:
+  Enabled: true
+
+Style/ParallelAssignment:
+  Enabled: true
+
+Layout/IndentationConsistency:
+  Enabled: true
+
+Layout/IndentationWidth:
+  Enabled: true
+
+Naming/PredicateName:
+  Enabled: true
+
+  ForbiddenPrefixes:
+    - is_
+    - have_
+
+  AllowedMethods:
+    - has_many
+    - has_many_actions
+    - is_association?
+
+Style/TrailingCommaInArguments:
+  Enabled: true
+
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+Layout/SpaceInsideParens:
+  Enabled: true

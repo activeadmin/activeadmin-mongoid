@@ -3,9 +3,6 @@ require 'delegate'
 module ActiveAdmin::Mongoid::Document
   extend ActiveSupport::Concern
 
-
-
-
   # PROXY CLASSES
 
   class ColumnWrapper < SimpleDelegator
@@ -30,9 +27,6 @@ module ActiveAdmin::Mongoid::Document
     end
   end
 
-
-
-
   # CLASS METHODS
 
   included do
@@ -47,7 +41,6 @@ module ActiveAdmin::Mongoid::Document
     def column_for_attribute(name)
       self.class.fields[name.to_sym]
     end
-
   end
 
   module ClassMethods
@@ -63,7 +56,7 @@ module ActiveAdmin::Mongoid::Document
     end
 
     def find_by_id id
-      find_by(:_id => id)
+      find_by(_id: id)
     end
 
     def quoted_table_name
@@ -73,7 +66,6 @@ module ActiveAdmin::Mongoid::Document
     def associations
       @associations ||= new.associations
     end
-
 
     def reflections *a
       relations *a

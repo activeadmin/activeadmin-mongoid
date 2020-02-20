@@ -1,4 +1,3 @@
-# coding: utf-8
 require 'spec_helper'
 
 describe 'browse the test app' do
@@ -66,7 +65,6 @@ describe 'browse the test app' do
     end
 
     context 'with 1 post' do
-
       before do
         Post.create!(title: 'Quick Brown Fox', body: 'The quick brown fox jumps over the lazy dog.', view_count: 5, admin_user: admin_user, other_user: other_user)
 
@@ -232,7 +230,7 @@ describe 'browse the test app' do
             Post.where(body: 'The quick brown fox jumps over the lazy dog.').update_all(author: { name: 'Bob', city: { name: 'Washington' } })
             post.author = Author.new name: 'Adam', city: { name: 'California' }
             post.save!
-            Post.all.each{|p| p.author.city }
+            Post.all.each { |p| p.author.city }
           end
 
           it 'sorts by the embedded document field' do
@@ -275,7 +273,7 @@ describe 'browse the test app' do
             display_total_text = I18n.t 'active_admin.pagination.multiple',
                                         model: 'Posts', total: posts_size,
                                         from: offset + 1, to: offset + collection_size
-            display_total_text     = Nokogiri::HTML(display_total_text).text.gsub(' ', ' ')
+            display_total_text = Nokogiri::HTML(display_total_text).text.gsub(' ', ' ')
             pagination_information = page.find('.pagination_information').text
             expect(pagination_information).to include(display_total_text)
           end
@@ -316,8 +314,6 @@ describe 'browse the test app' do
         visit '/admin/admin_users.csv'
         expect(page.status_code).to eq(200) or eq(304)
       end
-
-
     end
   end
 end

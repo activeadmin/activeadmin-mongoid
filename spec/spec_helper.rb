@@ -11,13 +11,13 @@ if %w(true 1).include?(ENV['COVERAGE'])
   end
 end
 
-require File.expand_path("../../test_app/config/environment", __FILE__)
+require File.expand_path('../test_app/config/environment', __dir__)
 require 'rspec/rails'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[File.join(File.expand_path("../../", __FILE__), "spec/support/**/*.rb")].each {|f| require f}
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Dir[File.join(File.expand_path('..', __dir__), "spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   # ## Mock Framework

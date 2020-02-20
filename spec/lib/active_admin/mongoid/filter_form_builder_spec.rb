@@ -60,11 +60,9 @@ describe ActiveAdmin::Filters::FormBuilder do
       it { is_expected.to eq :string }
     end
 
-
-  # when :date, :datetime, :time;   :date_range
-  # when :string, :text, :object;  :string
-  # when :float, :decimal;          :numeric
-  # when :integer
-
+    # when :date, :datetime, :time;   :date_range
+    # when :string, :text, :object;  :string
+    # when :float, :decimal;          :numeric
+    # when :integer
   end
 end
