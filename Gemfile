@@ -22,5 +22,5 @@ group :test do
 end
 
 group :lint do
-  gem 'rubocop', '0.80.0'
+  gem 'rubocop', '0.88.0'
 end
