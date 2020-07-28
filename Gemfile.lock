@@ -124,7 +124,7 @@ GEM
       railties (>= 3.2.16)
     jslint (1.2.0)
       json
-    json (2.1.0)
+    json (2.3.1)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
