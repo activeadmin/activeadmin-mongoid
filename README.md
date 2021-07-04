@@ -6,8 +6,8 @@
 
 ActiveAdmin is holding off on pulling Mongoid support into the core ActiveAdmin application.  This repo was pulled into the ActiveAdmin org from previous work done by Elia Schito, and will be maintained by Grzegorz Jakubiak, Nic Boie, JD Guzman, Elia Schito and other ActiveAdmin and community members.
 
-### Requirements for version 1.0.0
-* Ruby 2.4.0 or greater.
+### Requirements for version 1.1.0
+* Ruby 2.5.0 or greater.
 * Tested working on Rails 5.2.3
 * Mongoid 6.x (**WARNING**:, using a Mongoid version >= 6.1.x has resulted in a fair amount of errors seen in the wild.  Test your upgrade very carefully with any apps in which you're using this gem with Mongoid >= 6.1.x!)
 * ActiveAdmin 1.4.3 or greater
@@ -38,7 +38,7 @@ For more on Mongoid support in ActiveAdmin see [this issue](https://github.com/g
 Add the following gems to your application's Gemfile, and lock the version:
 
 ```ruby
-gem 'activeadmin-mongoid', '1.0.0'
+gem 'activeadmin-mongoid', '1.1.0'
 gem 'ransack-mongoid', github: 'activerecord-hackery/ransack-mongoid'
 ```
 
