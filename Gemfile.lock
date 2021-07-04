@@ -7,7 +7,7 @@ GIT
 PATH
   remote: .
   specs:
-    activeadmin-mongoid (1.0.0)
+    activeadmin-mongoid (1.1.0)
       activeadmin (>= 1.4.3)
       jquery-rails
       kaminari-mongoid
