@@ -1,6 +1,7 @@
 # ActiveAdmin-Mongoid
 [![Version         ][rubygems_badge]][rubygems]
-[![Build Status](https://travis-ci.org/activeadmin/activeadmin-mongoid.svg?branch=master)](https://travis-ci.org/activeadmin/activeadmin-mongoid)
+![Tests](https://github.com/activeadmin/activeadmin-mongoid/actions/workflows/tests.yml/badge.svg)
+![Codecheck](https://github.com/activeadmin/activeadmin-mongoid/actions/workflows/codecheck.yml/badge.svg)
 
 ## Updates
 
