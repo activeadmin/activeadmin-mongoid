@@ -9,7 +9,6 @@ require "rails/generators/named_base"
 # and thereby pushing ActiveAdmin::Generators::InstallGenerator to use our empty create_migrations method.
 
 Rails::Generators::NamedBase.class_eval do
-
   def create_migrations
   end
 
@@ -17,7 +16,7 @@ Rails::Generators::NamedBase.class_eval do
     super
     if klass.name == "ActiveAdmin::Generators::InstallGenerator"
 
-      klass.class_eval do 
+      klass.class_eval do
         def self.method_added(method_name)
           super
           remove_method method_name if method_name == :create_migrations
@@ -26,4 +25,3 @@ Rails::Generators::NamedBase.class_eval do
     end
   end
 end
-
