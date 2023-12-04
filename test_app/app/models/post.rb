@@ -10,4 +10,9 @@ class Post
 
   embeds_one :author
   field :'author.city.name'
+
+  def self.ransackable_scopes(auth_object = nil)
+    [:admin_user]
+  end
+
 end

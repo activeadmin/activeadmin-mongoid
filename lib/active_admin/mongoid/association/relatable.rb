@@ -11,4 +11,7 @@ Mongoid::Association::Relatable.module_eval do
     return if embeds?
     foreign_key.to_sym rescue nil
   end
+
+  alias_method :association_primary_key, :foreign_key
+
 end

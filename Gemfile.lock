@@ -1,8 +1,9 @@
 GIT
-  remote: https://github.com/activerecord-hackery/ransack-mongoid
-  revision: bd1935293d2f285fa7cf33d2c5c90d981bf67338
+  remote: https://github.com/jesusalc/ransack-mongoid
+  revision: b7f68881081731afdfaa010499d06adc93d17d71
+  branch: rails-6-mongoid-7-ruby-2-7-0
   specs:
-    ransack-mongoid (0.1.0)
+    ransack-mongoid (0.1.1)
 
 PATH
   remote: .

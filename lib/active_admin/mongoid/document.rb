@@ -70,6 +70,14 @@ module ActiveAdmin::Mongoid::Document
     def reflections *a
       relations *a
     end
+
+    def ransackable_scopes_skip_sanitize_args
+      []
+    end
+
+    def self.ransackable_scopes(auth_object = nil)
+      []
+    end
   end
 end
 
