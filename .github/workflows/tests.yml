@@ -25,7 +25,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1
       env: 
-        BUNDLE_NOKOGIRI___C: "--use-system-libraries"
+        BUNDLE_BUILD_NOKOGIRI___C: "--use-system-libraries"
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
