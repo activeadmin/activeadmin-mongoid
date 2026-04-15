@@ -16,6 +16,7 @@ require 'active_admin/mongoid/order_clause'
 require 'active_admin/mongoid/association/relatable'
 
 require 'active_admin/mongoid/inputs/filters/check_boxes_input'
+require 'active_admin/mongoid/inputs/filters/select_input'
 require 'active_admin/mongoid/filters/active_filter'
 require 'active_admin/mongoid/filters/resource_extension'
 require 'active_admin/mongoid/controllers/resource_controller'

@@ -8,7 +8,7 @@ module ActiveAdmin
       def collection_size(collection = nil)
         collection ||= self.collection
         if collection.is_a?(::Mongoid::Criteria)
-          collection.entries.count
+          collection.count
         else
           original_collection_size(collection)
         end

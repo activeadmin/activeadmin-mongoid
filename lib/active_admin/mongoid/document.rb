@@ -27,16 +27,12 @@ module ActiveAdmin::Mongoid::Document
     end
   end
 
-  # CLASS METHODS
-
   included do
-    unless respond_to? :primary_key
-      class << self
-        attr_accessor :primary_key
-      end
+    unless respond_to?(:primary_key) && respond_to?(:primary_key=)
+      class_attribute :primary_key, instance_writer: false
     end
 
-    self.primary_key ||= :id
+    self.primary_key = :id if primary_key.nil?
 
     def column_for_attribute(name)
       self.class.fields[name.to_sym]

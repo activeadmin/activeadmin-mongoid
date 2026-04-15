@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo5fission:/data/db
+    ports:
+      - "127.0.0.1:27017:27017"
+volumes:
+  mongofission:
+  mongo5fission:
+  esdata:

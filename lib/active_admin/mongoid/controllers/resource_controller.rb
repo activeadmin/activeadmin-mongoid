@@ -6,7 +6,7 @@ ActiveAdmin::Engine.module_eval do
       def build_new_resource
         scoped_collection.send(
           method_for_build,
-          *resource_params
+          # *resource_params
         )
       end
     end

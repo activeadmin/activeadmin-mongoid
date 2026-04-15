@@ -2,10 +2,15 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'ransack-mongoid', git: 'https://github.com/activerecord-hackery/ransack-mongoid'
+gem 'ransack-mongoid', path: "~/development/open_source/ransack-mongoid/"#, git: 'https://github.com/skalibog/ransack-mongoid'
+gem 'ransack', '~> 2.1.0'
 
-gem 'rails', '>= 5.2', '< 6.1'
+gem 'rails', '~> 6.0.3'
+gem 'mongoid', '= 7.1.0'
+gem 'concurrent-ruby', '1.3.4'
+gem 'webrick', '~> 1.7'
 
+gem 'mongo', '~> 2.16.4'
 gem 'devise'
 
 gem 'pry-rails'

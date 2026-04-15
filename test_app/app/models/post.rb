@@ -10,4 +10,9 @@ class Post
 
   embeds_one :author
   field :'author.city.name'
+
+  def self.ransack(*args)
+    super
+  end
+
 end
